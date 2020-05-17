@@ -44,7 +44,7 @@
                         <span><van-icon name="award-o" />已被约: {{item.yue}}</span>
                         <span><van-icon name="award-o" />作品集: {{item.opus}}</span>
                     </div>
-                    <div class="round">
+                    <div class="round" @click="selectProject">
                             <van-image width="30" height="30" round   src="https://img.yzcdn.cn/vant/cat.jpeg" />
                     </div>
                 </div>
@@ -156,6 +156,11 @@ export default {
                 },
             ]
 
+        }
+    },
+    methods:{
+        selectProject(){
+            this.$router.push({path:"/selectProject"})
         }
     }
 }

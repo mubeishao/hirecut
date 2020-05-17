@@ -4,6 +4,7 @@ import main from '@/components/main'
 import footer from '@/components/footer'
 import header from '@/components/header'
 import appontment from '../pages/appiontment'
+import selectProject from '../pages/selectProject'
 // import user from '../pages/myself'
 
 
@@ -48,6 +49,14 @@ export default new Router({
       component: appontment, 
       meta:{
         showfoot:true
+     }
+    },
+    {
+      path: '/selectProject',
+      name: 'Appontment',
+      component: selectProject, 
+      meta:{
+        showfoot:false
      }
     }
    

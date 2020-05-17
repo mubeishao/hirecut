@@ -7,6 +7,7 @@ import '../src/assets/fonts/iconfont.css'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import './vant.js'
+import store from './store'
 Vue.use(Vant);
 
 Vue.config.productionTip = false
@@ -16,9 +17,13 @@ if ('addEventListener' in document) {
       FastClick.attach(document.body);
   }, false);
 }
+
+
+
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

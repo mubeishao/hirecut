@@ -1,7 +1,7 @@
 <template>
     <div class="main"> 
             <van-nav-bar :title='title' >
-                <van-icon name="arrow-left" slot="left" /> 
+                <van-icon name="arrow-left" slot="left" @click="onClickLeft" /> 
                 <span slot="right" >{{rightContent}}</span> 
             </van-nav-bar>     
     </div>
@@ -24,9 +24,19 @@ export default {
            
         }
     },
+    // watch:{
+    //      title(newValue,oldValue){
+    //          this.title = newValue
+    //      },
+    //      rightContent(newValue,oldValue){
+    //          console.log(newValue)
+    //          this.rightContent = newValue
+    //      }
+    // },
     methods:{
          onClickLeft(){
-
+            this.$store.commit("setTransition", "turn-right");
+            this.$router.back()
      },
          onClickRight(){
      
