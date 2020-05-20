@@ -37,10 +37,10 @@ export default {
          onClickLeft(){
             this.$store.commit("setTransition", "turn-right");
             this.$router.back()
-     },
+        },
          onClickRight(){
      
-     }
+        }
     }
 }
 </script>

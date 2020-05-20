@@ -29,7 +29,7 @@
                  <div class="marginTop">
                        <div class="retailTime">
                             <ul class="reatil">
-                                <li v-for="(item,index) in morning" :key="index" :class="curentmor==index || curentmor==index+1  ?'bgm':'bgmk'" 
+                                <li v-for="(item,index) in morning" :key="index" :class="curentmor == index|| (index>curentmor&&index < nextCount) ?'bgm':'bgmk'" 
                                  @click="clickReatil(index,item.time,morning)">{{item.time}}</li>
                             </ul>
                             <div class="noon">上午</div>
@@ -37,24 +37,29 @@
                         <div class="retailTime retailMiddle">
                             <ul class="reatil">
                                 <li v-for="(item,index) in middleTime" :key="index" 
-                                :class="curentmor2==index || curentmor2==index+1  ?'bgm':'bgmk'" @click="clickMiddle(index,item.time,middleTime)">{{item.time}}</li>
+                                :class="curentmor2==index || curentmor2==index+1  ?'bgm':'bgmk'" 
+                                @click="clickMiddle(index,item.time,middleTime)">{{item.time}}</li>
                             </ul>
                             <div class="noon">下午</div>
                        </div>
                         <div class="retailTime">
                             <ul class="reatil">
-                                <li v-for="(item,index) in morning" :key="index">{{item.time}}</li>
+                                <li v-for="(item,index) in nightlist" :key="index"  :class="curentmor3==index || curentmor3==index+1 || curentmor3==index+2 ?'bgm':'bgmk'" 
+                                @click="clickNight(index,item.time,nightlist)">
+                                    {{item.time}}
+                                </li>
                             </ul>
                             <div class="noon">晚上</div>
                        </div>
 
                        <div class="attention">注：预约当天服务需要提前60分钟</div>
                  </div>
+
                  
                  <footer>
                      <div>
                          <van-icon name="underway-o" />
-                         <span>时间选择：<span class="period">{{periodDay}}--{{timePoint}}</span></span>
+                         <span>时间选择：<span class="period">{{periodDay}} {{morDay}}--{{morPoint}}</span></span>
                      </div>
                      <div class="next">下一步</div>
                  </footer>
@@ -71,16 +76,14 @@ export default {
              selectday:0,
              periodDay:"今天",
              timePoint:"",
+             present:0,
              curentmor:100,
              curentmor2:100,
              curentmor3:100,
-
-             morDay:"上午",
+             nextCount:0, 
+             morDay:"",
              morPoint:"",
-             noonDay:"中午",
-             noonPoint:"",
-             nightDay:"晚上",
-             nightPoint:"",
+          
              weeklist:[
                  {
                     day:'今天',
@@ -175,6 +178,46 @@ export default {
                  {time:'20:30'},
                  {time:'19:20'},
              ],
+             nightlist:[
+                 {time:'2:00'},
+                 {time:'22:00'},
+                 {time:'15:30'},
+                 {time:'12:30'},
+                 {time:'20:30'},
+                 {time:'23:59'},
+             ],
+
+             hairDay:[
+                 {
+                     morning1:[  {time:'21:30'},
+                    {time:'22:30'},
+                    {time:'11.30'},
+                    {time:'12:30'},
+                    {time:'20:30'},
+                    {time:'234'},]
+                 },
+                 {
+                    morning2:[  
+                    {time:'6:30'},
+                    {time:'22:30'},
+                    {time:'27'},
+                    {time:'12:30'},
+                    {time:'20:30'},
+                    {time:'234'},]
+                 },
+                 {
+                    morning3:[  {time:'2:30'},
+                    {time:'22:30'},
+                    {time:'27'},
+                    {time:'12:30'},
+                    {time:'20:30'},
+                    {time:'234'},]
+                 }
+             ]
+              
+             
+
+             
         }
     },
     methods:{
@@ -186,38 +229,65 @@ export default {
 
         },
         clickReatil(index,item,mon){
-             let vm =this;
-             vm.curentmor = index
-             vm.curentmor = index +1 
-             vm.morDay = item
-             if(vm.morning.length == index+1) {
-                 vm.morPoint = mon[index].time
-                 vm.curentmor2 = 0
-                 if(vm.curentmor2 == 0){
-                     vm.morPoint = vm.middleTime[0].time
-                 }
-             }else{
-                 vm.morPoint = mon[index+1].time
-             }
-             console.log( vm.morDay)
-             console.log( vm.morPoint)
+              let vm = this
+              vm.curentmor = index;
+              vm.nextCount = index+3
+            //   vm.curentmor = vm.nextCount
+              
+              
+              
+            //  let vm =this;
+            //  vm.curentmor2 = 100
+            //  vm.curentmor3 = 100
+            //  vm.curentmor = index
+            //  vm.curentmor = index +1  
+            //  vm.morDay = item
+            //  if(vm.morning.length == index+1) {
+            //      vm.morPoint = mon[index].time
+            //      vm.curentmor2 = 0
+            //      if(vm.curentmor2 == 0){
+            //          vm.morPoint = vm.middleTime[0].time
+            //      }
+            //  }else{
+            //      vm.morPoint = mon[index+1].time
+            //  }
 
         },
         clickMiddle(index,item,middle){
              let vm =this;
              vm.curentmor = 100
+             vm.curentmor3 = 100
              vm.curentmor2 = index
              vm.curentmor2 = index +1 
-             vm.noonDay = item
+             vm.morDay = item
              if(vm.middleTime.length == index+1) {
-                 vm.noonPoint = middle[index].time
+                  vm.morPoint = middle[index].time
+                  vm.curentmor3 = 0
+                 if(vm.curentmor3 == 0){
+                  vm.morPoint = vm.nightlist[0].time
+                 }
              }else{
-                vm.noonPoint = middle[index+1].time
+                vm.morPoint = middle[index+1].time
              }
-             console.log( vm.noonDay)
-             console.log( vm.noonPoint)
+   
 
-        }
+        },
+        // 晚上
+        clickNight(index,item,night){
+             let vm =this;
+             vm.curentmor = 100
+             vm.curentmor2 = 100
+             vm.curentmor3 = index
+             vm.curentmor3 = index +1
+             vm.curentmor3 = index +2
+             vm.morDay = item
+             if(vm.nightlist.length == index+1) {
+                vm.morPoint = night[index].time
+             }else{
+                vm.morPoint = night[vm.curentmor3].time
+             }
+        },
+
     },
     components:{
      HeaderTop
@@ -225,6 +295,17 @@ export default {
 }
 </script>
 <style scoped>
+    
+    .mor{
+        display: flex;
+        justify-content: center;
+    }
+    .mor li{
+        width: 1rem;
+        height: 0.5rem;
+        background: red;
+    }
+
      .select{
          width: 100%;
          height: 100%;

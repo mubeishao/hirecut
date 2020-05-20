@@ -149,5 +149,7 @@ export default {
     color: none;
     background: none;
   }
-
+  .van-hairline--bottom::after{
+    border:none;
+  }
 </style>

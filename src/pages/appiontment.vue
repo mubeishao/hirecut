@@ -160,7 +160,7 @@ export default {
     },
     methods:{
         selectProject(){
-            this.$router.push({path:"/selectProject"})
+            this.$router.push({path:"/hairproject"})
         }
     }
 }

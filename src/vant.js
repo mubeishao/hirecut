@@ -11,5 +11,12 @@ Vue.use(VanImage);
 import less from 'less'
 Vue.use(less)
 
+import { Cell, CellGroup } from 'vant';
+Vue.use(Cell);
+Vue.use(CellGroup);
 
 Vue.use(NoticeBar);
+
+import { ActionSheet } from 'vant';
+
+Vue.use(ActionSheet);
