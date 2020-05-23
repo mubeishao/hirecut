@@ -38,8 +38,6 @@ export default {
   },
   watch:{
     '$route' (to, from) {
-      console.log(to)
-      console.log(from)
      //to、from是最基本的路由对象，分别表示从(from)某个页面跳转到(to)另一个页面,to.path（表示要跳转到的路由地址），from.path同理。
       const routerDeep = ['/','/selectProject','/appontment','/main'];
       //找到to.path和from.path在routerDeep数组中的下标

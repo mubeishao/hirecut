@@ -9,7 +9,7 @@
             </div>
             <div class="sales">
                 <div class="shop">
-                    <div class="image"><van-image width="50" height="50"   src="https://img.yzcdn.cn/vant/cat.jpeg" /></div>
+                    <div class="image" ><van-image width="50" height="50"   src="https://img.yzcdn.cn/vant/cat.jpeg" /></div>
                     <div class="intro">
                         <p class="name">龙江店</p>
                         <p class="fontS"><van-icon name="location-o" />南京市</p>
@@ -25,7 +25,7 @@
             <div class="contentIndex">
                 <div  v-for="(item,index) in content" :key="index" class="content">
                     <div class="shop">
-                        <div class="image"><van-image width="50" height="50" round   src="https://img.yzcdn.cn/vant/cat.jpeg" /></div>
+                        <div class="image" @click="goCutter"><van-image width="50" height="50" round   src="https://img.yzcdn.cn/vant/cat.jpeg" /></div>
                         <div class="intro">
                                 <div class="hair">
                                         <p>{{item.tony}}</p>
@@ -161,6 +161,9 @@ export default {
     methods:{
         selectProject(){
             this.$router.push({path:"/hairproject"})
+        },
+        goCutter(){
+            this.$router.push({path:"/haircutter"})
         }
     }
 }

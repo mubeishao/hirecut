@@ -20,3 +20,11 @@ Vue.use(NoticeBar);
 import { ActionSheet } from 'vant';
 
 Vue.use(ActionSheet);
+
+import { Checkbox, CheckboxGroup } from 'vant';
+
+Vue.use(Checkbox);
+
+import { Toast } from 'vant';
+
+Vue.use(Toast);

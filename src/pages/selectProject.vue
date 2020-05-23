@@ -26,25 +26,27 @@
                          </van-notice-bar>
                       </div>
                  </div>
-                 <div class="marginTop">
+                 <div class="marginTop" ref="node">
                        <div class="retailTime">
                             <ul class="reatil">
-                                <li v-for="(item,index) in morning" :key="index" :class="curentmor == index|| (index>curentmor&&index < nextCount) ?'bgm':'bgmk'" 
-                                 @click="clickReatil(index,item.time,morning)">{{item.time}}</li>
+                                <!-- curentmor == index|| (index>curentmor&&index < nextCount) ? -->
+                                <li v-for="(item,index) in morning" :key="index" :class="item.status==1 ?'kai': curentmor == index|| (index>curentmor&&index < nextCount)  ? 'bgm':'bgmk'"    
+                                 @click="clickReatil(index,item.time,item.status,morning)">{{item.time}}</li>
                             </ul>
                             <div class="noon">上午</div>
                        </div>
                         <div class="retailTime retailMiddle">
-                            <ul class="reatil">
-                                <li v-for="(item,index) in middleTime" :key="index" 
-                                :class="curentmor2==index || curentmor2==index+1  ?'bgm':'bgmk'" 
-                                @click="clickMiddle(index,item.time,middleTime)">{{item.time}}</li>
+                            <ul class="reatil" >
+                                <li v-for="(item,index) in middleTime" :key="index"  
+                                    :class="curentmor2==index || ( index > curentmor2 && index < nextCount2)  ?'bgm ':'bgmk'" 
+                                    @click="clickMiddle(index,item.time,middleTime)">{{item.time}}
+                                </li>
                             </ul>
                             <div class="noon">下午</div>
                        </div>
                         <div class="retailTime">
                             <ul class="reatil">
-                                <li v-for="(item,index) in nightlist" :key="index"  :class="curentmor3==index || curentmor3==index+1 || curentmor3==index+2 ?'bgm':'bgmk'" 
+                                <li v-for="(item,index) in nightlist" :key="index"  :class="curentmor3==index || ( index > curentmor3 && index < nextCount3)  ?'bgm':'bgmk'" 
                                 @click="clickNight(index,item.time,nightlist)">
                                     {{item.time}}
                                 </li>
@@ -54,14 +56,12 @@
 
                        <div class="attention">注：预约当天服务需要提前60分钟</div>
                  </div>
-
-                 
                  <footer>
                      <div>
                          <van-icon name="underway-o" />
                          <span>时间选择：<span class="period">{{periodDay}} {{morDay}}--{{morPoint}}</span></span>
                      </div>
-                     <div class="next">下一步</div>
+                     <div class="next" @click="nextPage">下一步</div>
                  </footer>
              </div>
          </section>
@@ -69,6 +69,7 @@
 </template>
 <script>
 import HeaderTop from '../components/header'
+import { Toast } from 'vant'
 export default {
     data(){
         return{
@@ -81,9 +82,14 @@ export default {
              curentmor2:100,
              curentmor3:100,
              nextCount:0, 
+             nextCount2:0, 
+             nextCount3:0,
              morDay:"",
              morPoint:"",
-          
+             showClass:true,//判断最后一个日期
+             showStatus:0,
+             query:this.$route.query.count,
+             hairString:this.$route.query.hairString,
              weeklist:[
                  {
                     day:'今天',
@@ -157,20 +163,20 @@ export default {
                  },
              ],
              morning:[
-                 {time:'2'},
-                 {time:'22'},
-                 {time:'27'},
-                 {time:'12:30'},
-                 {time:'20:30'},
-                 {time:'234'},
+                 {time:'8:00',status:1},
+                 {time:'8:30',status:0},
+                 {time:'9:00',status:1},
+                 {time:'10:30',status:0},
+                 {time:'21:30',status:1},
+                 {time:'12:00',status:0},
              ],
              middleTime:[
-                 {time:'2'},
-                 {time:'22'},
-                 {time:'27'},
+                 {time:'2:00'},
+                 {time:'2:30'},
+                 {time:'3:00'},
                  {time:'12:30'},
                  {time:'20:30'},
-                 {time:'234'},
+                 {time:'23:14'},
                  {time:'12:30'},
                  {time:'20:30'},
                  {time:'15:30'},
@@ -220,73 +226,114 @@ export default {
              
         }
     },
+    created(){
+        let vm =this
+       
+    },
+    mounted(){
+        
+    },
     methods:{
         selectdayItem(index,day,week){
               let vm = this;
               this.selectday = index
               vm.periodDay = day
               vm.timePoint = week
+              console.log(day)
+              console.log(week)
 
         },
-        clickReatil(index,item,mon){
+        // 早上
+        clickReatil(index,time,status,mon){
               let vm = this
+              if(status==1){
+                  Toast('此时间端已经预约')
+                  return
+              }
+              if(mon[index+1].status==1||mon[index+ parseInt(vm.query)].status==1){
+                  Toast('此时间段不足')
+                      return
+              }
+            //   if(index>vm.curentmor || index < index+ parseInt(vm.query)){
+            //         mon.map(key=>{
+            //            if(key.status==0){
+            //               Toast('此时间段不足')
+            //               return
+            //             }
+            //         }) 
+            //   }
+              console.log(123)
+              vm.curentmor2 = 100
+              vm.curentmor3 = 100
+              vm.query = 3
               vm.curentmor = index;
-              vm.nextCount = index+3
-            //   vm.curentmor = vm.nextCount
-              
-              
-              
-            //  let vm =this;
-            //  vm.curentmor2 = 100
-            //  vm.curentmor3 = 100
-            //  vm.curentmor = index
-            //  vm.curentmor = index +1  
-            //  vm.morDay = item
-            //  if(vm.morning.length == index+1) {
-            //      vm.morPoint = mon[index].time
-            //      vm.curentmor2 = 0
-            //      if(vm.curentmor2 == 0){
-            //          vm.morPoint = vm.middleTime[0].time
-            //      }
-            //  }else{
-            //      vm.morPoint = mon[index+1].time
-            //  }
+              const number = mon[index+ parseInt(vm.query)-1].status
+              vm.nextCount = index+ parseInt(vm.query)
+              vm.morDay = time
+
+            if(vm.nextCount>vm.morning.length){
+                let num = vm.nextCount - vm.morning.length
+                vm.nextCount2 = num
+                vm.curentmor2 = -1
+                vm.morPoint = vm.middleTime[num-1].time
+            }else{
+                vm.nextCount2 = 0
+                vm.morPoint = mon[vm.nextCount-1].time
+            }
+            
 
         },
-        clickMiddle(index,item,middle){
+        //中午
+        clickMiddle(index,time,middle){
              let vm =this;
+             vm.query = 4
              vm.curentmor = 100
              vm.curentmor3 = 100
-             vm.curentmor2 = index
-             vm.curentmor2 = index +1 
-             vm.morDay = item
-             if(vm.middleTime.length == index+1) {
-                  vm.morPoint = middle[index].time
-                  vm.curentmor3 = 0
-                 if(vm.curentmor3 == 0){
-                  vm.morPoint = vm.nightlist[0].time
-                 }
-             }else{
-                vm.morPoint = middle[index+1].time
-             }
-   
+             vm.curentmor2 = index;
+             vm.morDay = time
+             vm.nextCount2 = index+ parseInt(vm.query)
+            //  vm.morPoint = middle[vm.nextCount2-1].time
+            if(vm.nextCount2 > vm.middleTime.length){
+                let num = vm.nextCount2 - vm.middleTime.length
+                vm.nextCount3 = num
+                vm.curentmor3 = -1
+                vm.morPoint = vm.nightlist[num-1].time
+            }else{
+                vm.nextCount3 = 0
+                vm.morPoint = middle[vm.nextCount2-1].time
+            }
 
         },
         // 晚上
-        clickNight(index,item,night){
+        clickNight(index,time,night){
              let vm =this;
-             vm.curentmor = 100
-             vm.curentmor2 = 100
-             vm.curentmor3 = index
-             vm.curentmor3 = index +1
-             vm.curentmor3 = index +2
-             vm.morDay = item
-             if(vm.nightlist.length == index+1) {
-                vm.morPoint = night[index].time
+            
+             if(index+ parseInt(vm.query)>night.length){
+                Toast('时间段不足')
              }else{
-                vm.morPoint = night[vm.curentmor3].time
+               vm.curentmor = 100
+               vm.curentmor2 = 100
+               vm.query = 2
+               vm.curentmor3 = index;
+               vm.morDay = time
+               vm.nextCount3 = index+ parseInt(vm.query)
+               vm.morPoint = night[vm.nextCount3-1].time
              }
+            
+            
         },
+
+        // 下一步
+        nextPage(){
+            var queryInfo = {
+                periodDay:vm.periodDay,
+                timePoint:vm.timePoint,
+                morDay:vm.morDay,
+                morPoint:vm.morPoint,
+                hairString:vm.hairString, //选址项目
+            }
+            this.$router.push({path:'', query:{queryInfo}})
+        }
 
     },
     components:{
@@ -482,7 +529,11 @@ export default {
         color: #ffffff;
     }
     .bgmk{
-         background: #ffffff;
-        color:#939393;
+        background: #ffffff;
+        color:#242424;
+    }
+    .kai{
+        background: #efefef;
+        color: #b9b9b9;
     }
 </style>

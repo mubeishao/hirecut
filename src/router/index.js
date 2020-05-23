@@ -6,6 +6,7 @@ import header from '@/components/header'
 import appontment from '../pages/appiontment'
 import selectProject from '../pages/selectProject'
 import hairProject from '../pages/hairProject'
+import hairCutter from '../pages/haircutter'
 // import user from '../pages/myself'
 
 
@@ -64,6 +65,14 @@ export default new Router({
       path: '/hairproject',
       name: 'HairProject',
       component: hairProject, 
+      meta:{
+        showfoot:false
+     }
+    },
+    {
+      path: '/haircutter',
+      name: 'haircutter',
+      component: hairCutter, 
       meta:{
         showfoot:false
      }
