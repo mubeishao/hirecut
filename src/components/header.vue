@@ -1,9 +1,10 @@
 <template>
     <div class="main"> 
-            <van-nav-bar :title='title' >
-                <van-icon name="arrow-left" slot="left" @click="onClickLeft" /> 
-                <span slot="right" >{{rightContent}}</span> 
-            </van-nav-bar>     
+            <div class="content">
+                <img src="../../static/images/left_03.png" width="18" height="18" @click="onClickLeft" />
+                <p></p>
+                <p class="right">{{rightContent}}</p>
+            </div>
     </div>
 </template>
 <script>
@@ -69,6 +70,30 @@ export default {
    }
    .van-nav-bar .van-icon{
       color: #000000
+   }
+   .main{
+       width: 100%;
+       background: #ffffff;
+       border: none;
+   }
+   .content{
+       width: 90%;
+       display: flex;
+       justify-content: space-between;
+       margin: 0 auto;
+       height: 30px;
+       padding-top: 0.3rem;
+       
+      
+   }
+   .content img{
+       display: block;
+      
+   }
+   .right{
+       font-size: 0.32rem;
+       color: #1d1d1d;
+       font-weight: bold;
    }
 </style>
 

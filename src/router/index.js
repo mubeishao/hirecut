@@ -7,6 +7,8 @@ import appontment from '../pages/appiontment'
 import selectProject from '../pages/selectProject'
 import hairProject from '../pages/hairProject'
 import hairCutter from '../pages/haircutter'
+import reward from '../pages/reward'
+import redPackage from '../pages/redpackage'
 // import user from '../pages/myself'
 
 
@@ -77,6 +79,23 @@ export default new Router({
         showfoot:false
      }
     },
+    {
+      path: '/reward',
+      name: 'reward',
+      component: reward, 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/redpackage',
+      name: 'redpackage',
+      component: redPackage, 
+      meta:{
+        showfoot:false   
+     }
+    },
+    
    
   ]
 })

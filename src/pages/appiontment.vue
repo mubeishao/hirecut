@@ -9,7 +9,8 @@
             </div>
             <div class="sales">
                 <div class="shop">
-                    <div class="image" ><van-image width="50" height="50"   src="https://img.yzcdn.cn/vant/cat.jpeg" /></div>
+                    <div class="image" >
+                        <van-image width="50" height="50"   src="https://img.yzcdn.cn/vant/cat.jpeg" /></div>
                     <div class="intro">
                         <p class="name">龙江店</p>
                         <p class="fontS"><van-icon name="location-o" />南京市</p>
