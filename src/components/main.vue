@@ -30,7 +30,7 @@
                         <van-icon name="phone-circle-o" />
                         {{item.tel}}</p>
                   </div>
-                  <div class="book" @click.stop.prevent="toBook">预约</div>
+                  <div class="book" @click.stop.prevent="toBook"></div>
            </div>
            <div class="bottom"></div>
       </div>
@@ -171,8 +171,10 @@ export default {
   margin-top: 0.1rem;
 }
 .cureent{
-  background: #000000;
+  background: url("../../static/images/book_03.png") no-repeat;
+  background-size: 100% 100%;
   color: #ffffff;
+  border: none;
 }
 .now{
   background: #ffffff;
@@ -190,7 +192,7 @@ export default {
   height: 0.46rem;
   line-height: 0.48rem;
   border-radius: 0.24rem; 
-  border: 0.014rem solid #000000;
+  border: 0.014rem solid #dfdfdf;
   margin: 0 0.1rem;
   font-size: 0.22rem;
 }
@@ -239,10 +241,10 @@ export default {
   bottom: 0.2rem;
   right: 0.24rem;
   width: 1rem;
-  height: 0.5rem;
-  line-height: 0.5rem;
+  height: 0.44rem;
   text-align: center;
-  background: #000000;
+  background: url('../../static/images/book_07.png') no-repeat;
+  background-size: 100% 100%;
   border-radius: 0.12rem;
   color: #ffffff;
 }

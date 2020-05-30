@@ -62,7 +62,8 @@ export default {
              hairName:'',
              hairInfo:[],
              hairString:"",
-             hairServise:'',
+             hairServise:'理发2',
+             hairServise2:"",
              count:0,
              hairServeTime:0,
              hairInfoName:"",
@@ -157,6 +158,10 @@ export default {
                  vm.hairServeTime = vm.hairServeTime - serveTime
              }
              vm.hairString = vm.pickProject.toString()
+             if(vm.hairServise == vm.hairServise2){
+                  vm.hairString = vm.pickProject.toString()
+             }
+           
              vm.count = vm.pickProject.length  
 
              
@@ -168,11 +173,15 @@ export default {
         },
         hairShow(hair,index){
              let vm = this    
+            // vm.hairString = ''       
+            //  vm.pickProject = []
              this.hairServise = hair
              this.show = true  
              vm.hairInfoName = hair
              vm.currentIndex = index
-             
+             vm.haristyle.map(item=>{
+                 item.checked = false
+             })
             
         } 
     },

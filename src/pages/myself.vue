@@ -15,24 +15,30 @@
                     </div>
               </div>
               <div class="three">
-                  <div class="member">
-                    <img src="../../static/images/hua_16.png" width="22" height="22"/>
-                    <span>会员卡</span>
-                  </div>
-                  <div class="member">
-                    <img src="../../static/images/huaban_11.png" width="22" height="22"/>
-                    <span>套餐余量</span>
-                  </div>
+                  <router-link to="/member">
+                    <div class="member" >     
+                            <img src="../../static/images/hua_16.png" width="22" height="22"/>
+                            <span>会员卡</span>
+                    </div>
+                  </router-link> 
+                  <router-link to="/allowance">
+                      <div class="member">
+                        <img src="../../static/images/huaban_11.png" width="22" height="22"/>
+                        <span>套餐余量</span>
+                      </div>
+                  </router-link>
                   <div class="member">
                     <img src="../../static/images/huaban_13.png" width="22" height="22"/>
                     <span>我的预约</span>
                   </div>
               </div>    
               <div class="salarys">
-                  <div class="more">
-                      <p class="yuan">您一共消费<span>699</span>元</p>
-                      <p class="record"><span>查看更多的消费记录</span><van-icon name="arrow" size="12" class="van" /></p>
-                  </div>
+                  <router-link to="/purchase"> 
+                    <div class="more">
+                        <p class="yuan">您一共消费<span>699</span>元</p>
+                        <p class="record"><span>查看更多的消费记录</span><van-icon name="arrow" size="12" class="van" /></p>
+                    </div>
+                  </router-link>
               </div>
               <div class="redpackge">
                       <ul>
@@ -45,7 +51,7 @@
                                 <p class="award">刮红包赢奖金<van-icon name="arrow" size="12" class="van" /></p>
                               </li>
                           </router-link>
-                          <router-link to="/user">
+                          <router-link to="/mallscore">
                               <li>
                                 <div class="red">
                                     <img src="../../static/images/tu_11.png" width="20" height="20" />
@@ -54,7 +60,7 @@
                                 <p class="award">积分兑换礼品<van-icon name="arrow" size="12" class="van" /></p>
                               </li>
                           </router-link>
-                             <router-link to="/user">
+                             <router-link to="/onlinescore">
                               <li>
                                 <div class="red">
                                     <img src="../../static/images/hua_26.png" width="19" height="19" />
@@ -63,7 +69,7 @@
                                 <p class="award">积分当钱用<van-icon name="arrow" size="12" class="van" /></p>
                               </li>
                           </router-link>
-                             <router-link to="/user">
+                             <router-link to="/myorder">
                               <li>
                                 <div class="red">
                                     <img src="../../static/images/hua_29.png" width="19" height="20" />

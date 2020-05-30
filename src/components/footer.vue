@@ -5,8 +5,24 @@
             v-model="active"
             class="footer"
             >
-            <van-tabbar-item icon="home-o" to="/main">预约</van-tabbar-item>
-            <van-tabbar-item icon="search">作品</van-tabbar-item>
+            <van-tabbar-item to="/main" class="mainline">
+                <van-image
+                            
+                            width="0.4rem"
+                            height="0.4rem"
+                            src="../../static/images/book_11.png"
+                    />
+                <p>预约</p>
+            </van-tabbar-item>
+            <van-tabbar-item  class="mainline">
+                 <van-image
+                            
+                            width="0.4rem"
+                            height="0.4rem"
+                            src="../../static/images/book_13.png"
+                    />
+                <p>作品</p>
+            </van-tabbar-item>
             <van-tabbar-item  to='/user' class="round">
                 <van-image
                         round
@@ -15,10 +31,24 @@
                         src="https://img.yzcdn.cn/vant/cat.jpeg"
                 />
             </van-tabbar-item>
-            <van-tabbar-item icon="refund-o">
-               商城
+            <van-tabbar-item  class="mainline">
+                <van-image
+                            
+                            width="0.4rem"
+                            height="0.4rem"
+                            src="../../static/images/book_15.png"
+                    />
+                <p>商城</p>
             </van-tabbar-item>
-            <van-tabbar-item icon="friends-o" to='/user' >我的</van-tabbar-item>         
+            <van-tabbar-item  to='/user' class="mainline">
+                  <van-image
+                            
+                            width="0.4rem"
+                            height="0.4rem"
+                            src="../../static/images/book_17.png"
+                    />
+                <p>我的</p>
+            </van-tabbar-item>         
        </van-tabbar>   
     </div>
 </template>
@@ -58,5 +88,14 @@ export default {
      }
      .van-hairline--top-bottom::after, .van-hairline-unset--top-bottom::after{
          border-width:0
+     }
+     .mainline{
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+     }
+     .mainline p{
+         margin-top: .1rem;
      }
 </style>
