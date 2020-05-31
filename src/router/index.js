@@ -166,6 +166,54 @@ export default new Router({
         showfoot:false   
      }
     },
+    {
+      path: '/evaluation',
+      name: 'evaluation',
+      component: () => import('../pages/evaluation'), 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/my',
+      name: 'my',
+      component: () => import('../pages/my'), 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/center',
+      name: 'center',
+      component: () => import('../pages/center'), 
+      meta:{
+        showfoot:true   
+     }
+    },
+    {
+      path: '/brand',
+      name: 'brand',
+      component: () => import('../pages/brand'), 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/stories',
+      name: 'stories',
+      component: () => import('../pages/storoes'), 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/tariffe',
+      name: 'tariffe',
+      component: () => import('../pages/tariffe'), 
+      meta:{
+        showfoot:false   
+     }
+    },
     
    
   ]

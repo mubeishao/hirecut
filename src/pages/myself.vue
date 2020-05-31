@@ -2,7 +2,9 @@
     <div class="myself">
          <div class="head">
                  <div><van-icon name="arrow-left" /></div>
-                 <img src="../../static/images/hua_03.png" width="25" height="25"/>
+                 <router-link to="/my">
+                       <img src="../../static/images/hua_03.png" width="25" height="25"/>
+                 </router-link>
          </div>
          <div>
               <div class="marTop">
@@ -27,10 +29,12 @@
                         <span>套餐余量</span>
                       </div>
                   </router-link>
-                  <div class="member">
-                    <img src="../../static/images/huaban_13.png" width="22" height="22"/>
-                    <span>我的预约</span>
-                  </div>
+                  <router-link to="/evaluation">
+                    <div class="member">
+                        <img src="../../static/images/huaban_13.png" width="22" height="22"/>
+                        <span>我的预约</span>
+                    </div>
+                  </router-link>
               </div>    
               <div class="salarys">
                   <router-link to="/purchase"> 
@@ -111,16 +115,16 @@ export default {
         width: 90%;
         margin: 0 auto;
         display: flex;
+        justify-content: flex-start;
+        text-align: center;
+        align-items: center;
         margin-top: 0.5rem;
     }
-    .img{
-        flex: 1;
-        margin-right: 0.26rem;
-    }
-    .hair{
-        flex: 3;
+
+    .hair{   
         margin-right: 0.1rem;
-        padding-top: 0.22rem;
+        padding-top: 0.1rem;
+        padding-left: 0.2rem;
 
     }
     .hairName{
@@ -130,7 +134,8 @@ export default {
     }
 
     .hairbgm{
-        margin-top: 0.26rem;
+        margin-top: 0.16rem;
+        margin-left: 0.1rem;
     }
     .hairbgm{
         background: url('../../static/images/daren.png') no-repeat;
@@ -138,9 +143,10 @@ export default {
         height: 0.44rem;
         line-height: 0.44rem;
         text-align: center;
-        width: 2rem;
+        width: 1.7rem;
         font-size: 0.2rem;
         color: #ffffff;
+        
     }
     .three{
         display: flex;

@@ -14,7 +14,7 @@
                     />
                 <p>预约</p>
             </van-tabbar-item>
-            <van-tabbar-item  class="mainline">
+            <van-tabbar-item  class="mainline" to="/stories">
                  <van-image
                             
                             width="0.4rem"
@@ -23,7 +23,7 @@
                     />
                 <p>作品</p>
             </van-tabbar-item>
-            <van-tabbar-item  to='/user' class="round">
+            <van-tabbar-item  to='/center' class="round">
                 <van-image
                         round
                         width="1.2rem"

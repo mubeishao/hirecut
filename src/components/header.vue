@@ -46,6 +46,9 @@ export default {
 }
 </script>
 <style  scoped>
+.main{
+    z-index: 999;
+}
    .header{
        height: 60px;
    }
