@@ -31,7 +31,7 @@
                         src="https://img.yzcdn.cn/vant/cat.jpeg"
                 />
             </van-tabbar-item>
-            <van-tabbar-item  class="mainline">
+            <van-tabbar-item to="/cart"  class="mainline">
                 <van-image
                             
                             width="0.4rem"

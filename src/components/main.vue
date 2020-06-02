@@ -18,8 +18,8 @@
        </div>
        <div   class="detailline">
           <div class="address" v-for="(item,index) in detailInfo" :key="index">
-                 <div class="pic">
-                      <van-image width="100" height="90"   src="https://img.yzcdn.cn/vant/cat.jpeg" />
+                 <div class="pic" @click="wantBook">
+                      <van-image width="100" height="90"   src="https://img.yzcdn.cn/vant/cat.jpeg"  />
                   </div>
                   <div class="detail">
                       <div class="mall">
@@ -105,6 +105,9 @@ export default {
        },
        toBook(){
           this.$router.push({path:"/appontment"})
+       },
+       wantBook(){
+          this.$router.push({path:'/makeappont'})
        }
   },
   components:{

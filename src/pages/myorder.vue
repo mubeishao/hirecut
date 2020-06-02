@@ -1,17 +1,20 @@
 <template>
     <div class="content">
         <HeaderTop :rightContent="selectProject"/>
-       <div class="table">
+         <van-tabs v-model="active"  color="currentIndex==active?'#000000':'#999999'" @click="getActive">
+                                <van-tab :title="unused"></van-tab>
+                                <van-tab :title="out"></van-tab>
+         </van-tabs>
+       <!-- <div class="table">
                  <ul class="used">
-                     <li v-for="(item,index) in arrList" :key="index" @click="current(index)">
+                     <li>
                          <div :class="currentIndex==index?'apple':'apple2'">
                               <p class="one"> {{item.unused}}</p>
                               <p :class="currentIndex==index?'iphone':''"></p>
-                         </div>
-                         
+                         </div>  
                      </li>    
                  </ul>
-        </div>
+        </div>  -->
         <ul class="myorder">
             <li class="order"  v-for="(item,index) in orderlist" :key="index">
                     <div class="day">订单日期: {{item.day}}</div>
@@ -39,14 +42,9 @@ export default {
            active:'1',
            selectProject:"我的订单",
            currentIndex:0,
-           arrList:[
-                 {
-                     unused:"未使用(1)"
-                 },
-                 {
-                      unused:"已过期"
-                 }
-             ],
+           unused:"未使用(1)",
+           out:"已过期",
+           show:false,
             orderlist:[
                 {
                     day:'2020-4-5',
@@ -73,8 +71,10 @@ export default {
         HeaderTop
     },
     methods:{
-         current(index){
-             this.currentIndex = index
+         getActive(e){
+             console.log(this.active)
+              this.currentIndex = e
+
          }
     }
 }

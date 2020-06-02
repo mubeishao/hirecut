@@ -1,5 +1,6 @@
 <template>
     <div class="content">
+          <HeaderTop :rightContent="rightContent"/>
           <div class="pic"></div>
           <div class="white">
                     <div class="tel">
@@ -25,13 +26,20 @@
     </div>
 </template>
 <script>
-export default {
-    data(){
-
-    }
-}
+import HeaderTop from '../components/header'
+   export default{
+        data(){
+            return{
+                rightContent:"我要预约"
+            }
+     },
+     components:{
+         HeaderTop
+     }
+   }
 </script>
 <style scoped>
+
     .content{
         width: 100%;
         height: 100%;
@@ -42,6 +50,8 @@ export default {
         height: 7.5rem;
         background: url('../../static/images/picture_01.png') no-repeat;
         background-size: 100% 100%;
+        z-index: 2;
+        
     }
     .tel{
         display: flex;

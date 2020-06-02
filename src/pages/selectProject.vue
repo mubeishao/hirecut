@@ -325,6 +325,7 @@ export default {
 
         // 下一步
         nextPage(){
+            let vm =this
             var queryInfo = {
                 periodDay:vm.periodDay,
                 timePoint:vm.timePoint,

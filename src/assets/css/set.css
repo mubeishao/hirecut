@@ -1,0 +1,12 @@
+.van-tabs__line{
+    background: #000000;
+    width: 60px !important;
+}
+.van-tab__text{
+    font-size: 0.24rem;
+    font-weight: bold;
+}
+.van-search{
+    padding: 0 !important;
+    background: #ffffff !important;
+}

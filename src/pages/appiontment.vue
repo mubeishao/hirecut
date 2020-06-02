@@ -4,7 +4,7 @@
             <div class="top">
                 <div class="head">
                     <p class="retail">预约</p>
-                    <p ><van-icon name="shop-collect-o" /><span class="mall">门店</span></p>
+                    <p ><van-icon name="shop-collect-o" size="20" class="vanicon" /><span class="mall">门店</span></p>
                 </div>
             </div>
             <div class="sales">
@@ -193,9 +193,13 @@ export default {
     }
     .retail{
          font-size: 0.26rem;
-        }   
+    }   
+    .vanicon{
+        vertical-align: middle;
+    }    
     .mall{
         font-size: 0.22rem;
+        padding-left: 0.05rem;
     }    
     .top{
          border-bottom: 0.01rem solid gainsboro;

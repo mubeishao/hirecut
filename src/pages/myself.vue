@@ -1,7 +1,7 @@
 <template>
     <div class="myself">
          <div class="head">
-                 <div><van-icon name="arrow-left" /></div>
+                 <img src="../../static/images/left_03.png" width="18" height="18" @click="back" />
                  <router-link to="/my">
                        <img src="../../static/images/hua_03.png" width="25" height="25"/>
                  </router-link>
@@ -29,7 +29,7 @@
                         <span>套餐余量</span>
                       </div>
                   </router-link>
-                  <router-link to="/evaluation">
+                  <router-link to="/cart">
                     <div class="member">
                         <img src="../../static/images/huaban_13.png" width="22" height="22"/>
                         <span>我的预约</span>
@@ -98,6 +98,11 @@ export default {
     },
     components:{
         HeaderTop
+    },
+    methods:{
+       back(){
+        this.$router.go(-1);//返回上一层
+       },
     }
 }
 </script>

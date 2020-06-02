@@ -214,6 +214,22 @@ export default new Router({
         showfoot:false   
      }
     },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('../pages/cart'), 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/goodsdetail',
+      name: 'goodsDetail',
+      component: () => import('../pages/goodsDetail'), 
+      meta:{
+        showfoot:false   
+     }
+    },
     
    
   ]

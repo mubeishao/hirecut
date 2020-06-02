@@ -53,7 +53,8 @@
                        <span >南京市鼓楼区打鸡蛋123号</span>
                     </p> 
                </div>
-                <img src="../../static/images/12_05.png" width="40" height="40" class="phone" />
+               <a href="tel:13812340050" class="phone"></a>
+               <!-- <img src="../../static/images/12_05.png" width="40" height="40" class="phone" /> -->
            </div>
           <p class="border"></p>
           <div class="retail">
@@ -108,16 +109,18 @@
               </ul>
           </div>
           <p class="border"></p>
-          <div class="rate">
-               <div  class="customer">
-                   <img src="../../static/images/12_19.png" width="13" height="14"/>
-                   <span class="today">顾客评价</span>
-               </div>
-               <div class="count">
-                   <span>18条</span>
-                   <van-icon name="arrow" color="#dcdddf" size="14" class="arrow" />
-               </div>
-          </div>
+          <router-link to="/evaluation">
+               <div class="rate">
+                <div  class="customer">
+                    <img src="../../static/images/12_19.png" width="13" height="14"/>
+                    <span class="today">顾客评价</span>
+                </div>
+                <div class="count">
+                    <span>18条</span>
+                    <van-icon name="arrow" color="#dcdddf" size="14" class="arrow" />
+                </div>
+              </div>
+          </router-link>
           <p class="border2"></p>
           <div class="bot">
               <img src="../../static/images/wer_09.png" @click="goReward"/>
@@ -277,7 +280,11 @@ export default {
     }
     .phone{
        display: block;
+       width: 0.6rem;
+       height: 0.6rem;
        margin-top: -0.08rem;
+       background: url('../../static/images/12_05.png') no-repeat;
+       background-size: 100% 100%;
     }
     .retail{
         padding: 0.2rem 0.3rem;

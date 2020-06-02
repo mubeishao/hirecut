@@ -6,6 +6,7 @@ import FastClick from 'fastclick'
 import '../src/assets/fonts/iconfont.css'
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import "./assets/css/set.css"
 import './vant.js'
 import store from './store'
 import Moment from 'moment';

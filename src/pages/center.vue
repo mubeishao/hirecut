@@ -40,7 +40,7 @@
           </div>
           <div class="redpackge">
                       <ul>
-                          <router-link to="/redpackage">
+                          <router-link to="/main">
                               <li>
                                 <div class="red">
                                     <img src="../../static/images/dian_13.png" width="26" height="24" />
@@ -52,7 +52,7 @@
                                 <p class="award"><van-icon name="arrow" size="12" class="van" /></p>
                               </li>
                           </router-link>
-                          <router-link to="/mallscore">
+                          <router-link to="/user">
                               <li>
                                 <div class="red">
                                     <img src="../../static/images/dian_16.png" width="27" height="24" />
@@ -76,7 +76,7 @@
                                 <p class="award"><van-icon name="arrow" size="12" class="van" /></p>
                               </li>
                           </router-link>
-                             <router-link to="/myorder">
+                             <router-link to="/stories">
                               <li>
                                 <div class="red">
                                     <img src="../../static/images/dian_22.png" width="26" height="24" />
