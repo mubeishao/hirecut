@@ -4,7 +4,7 @@
             <div class="top">
                 <div class="head">
                     <p class="retail">预约</p>
-                    <p ><van-icon name="shop-collect-o" size="20" class="vanicon" /><span class="mall">门店</span></p>
+                    <p ><img src="../../static/images/two_03.png" width="16" height="15" class="vanicon" /><span class="mall">门店</span></p>
                 </div>
             </div>
             <div class="sales">
@@ -13,15 +13,19 @@
                         <van-image width="50" height="50"   src="https://img.yzcdn.cn/vant/cat.jpeg" /></div>
                     <div class="intro">
                         <p class="name">龙江店</p>
-                        <p class="fontS"><van-icon name="location-o" />南京市</p>
                         <p class="fontS">
-                            <van-icon name="phone-circle-o" />
+                            <img src="../../static/images/picture_11.png" width="8" height="10" class="nanjing" />
+                            南京市</p>
+                        <p class="fontS">
+                              <img src="../../static/images/picture_07.png" width="8" height="10" />
                             0551-4685554</p>
                     </div>
                     <div class="telphone">
-                        <van-image width="38" height="38" round   src="https://img.yzcdn.cn/vant/cat.jpeg" />
+                        <!-- <van-image width="38" height="38" round   src="https://img.yzcdn.cn/vant/cat.jpeg" /> -->
+                        <a href="tel:0551-88888888" class="telImg"></a>
                     </div>
                 </div> 
+                <div class="bolan"></div>
             </div>
             <div class="contentIndex">
                 <div  v-for="(item,index) in content" :key="index" class="content">
@@ -41,12 +45,12 @@
                         </div>
                     </div>
                     <div class="rate">
-                        <span><van-icon name="like-o" />好评率: {{item.goodRate}}</span>
-                        <span><van-icon name="award-o" />已被约: {{item.yue}}</span>
-                        <span><van-icon name="award-o" />作品集: {{item.opus}}</span>
+                        <span ><img :src="heart" width="10" height="10" />&nbsp;<span class="goodrate">好评率: {{item.goodRate}}</span></span>
+                        <span class="twoSpan"><img :src="by" width="10" height="14" />&nbsp;已被约: {{item.yue}}</span>
+                        <span class="twoSpan"><img :src="zp" width="14" height="10" />&nbsp;作品集: {{item.opus}}</span>
                     </div>
                     <div class="round" @click="selectProject">
-                            <van-image width="30" height="30" round   src="https://img.yzcdn.cn/vant/cat.jpeg" />
+                            <van-image width="40" height="40" round   src="../../static/images/two_11.png" />
                     </div>
                 </div>
             </div>
@@ -55,9 +59,15 @@
 </template>
 <script>
 import HeaderTop from '../components/header'
+import heart from '../../static/images/two_17.png'
+import by from '../../static/images/two_14.png'
+import zp from '../../static/images/two_20.png'
 export default {
     data(){
         return{
+            heart:heart,
+            by:by,
+            zp:zp,
             worklist:[
                  {name:"男士理发"},
                  {name:"美发"},
@@ -207,8 +217,15 @@ export default {
     }
     .sales{
         margin-top: 0.3rem;
-        border-bottom: 0.1rem dashed gainsboro;
+        /* border-bottom: 0.1rem dashed gainsboro; */
         padding-bottom: 0.26rem;
+    }
+    .bolan{
+        width: 100%;
+        height: 0.3rem;
+        background: url('../../static/images/bolan.png') no-repeat;
+        background-size: 100% 100%;
+        margin-top: 0.1rem;
     }
     .shop{
         display: flex;
@@ -227,11 +244,23 @@ export default {
     }
     .fontS{
         font-size: 0.2rem;
-        color: gray;
+        color: #9b9b9b;
         margin: 0.1rem 0;
+        vertical-align: middle;
+        
+    }
+    .nanjing{
+        color: #9b9b9b;
     }
     .telphone{
         padding-top: 0.16rem;
+    }
+    .telImg{
+        display: block;
+        width: 0.6rem;
+        height: 0.6rem;
+        background: url('../../static/images/two_07.png') no-repeat;
+        background-size: 100% 100%;
     }
     .content{
         position: relative;
@@ -258,8 +287,7 @@ export default {
         display: flex;
         justify-content: space-between;
         width: 56%;
-        margin: 0 0.32rem;
-        
+        margin: 0 0.32rem;   
     }
     .haircut{
         flex: 1;
@@ -279,6 +307,16 @@ export default {
     }
     .rate span{
         margin: 0 0.04rem;
+        
+    }
+    .goodrate{
+         color: #e73828;
+    }
+    .twoSpan{
+        color: #b4b4b5;
+    }
+    .rate img{
+        vertical-align: middle;
     }
     ::-webkit-scrollbar{
         height: 0;

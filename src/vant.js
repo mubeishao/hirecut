@@ -28,3 +28,7 @@ Vue.use(Checkbox);
 import { Toast } from 'vant';
 
 Vue.use(Toast);
+
+import { Field } from 'vant';
+
+Vue.use(Field);

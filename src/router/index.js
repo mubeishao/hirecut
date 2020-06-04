@@ -230,7 +230,22 @@ export default new Router({
         showfoot:false   
      }
     },
-    
+    {
+      path: '/mybook',
+      name: 'mybook',
+      component: () => import('../pages/myBook'), 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/cancelbook',
+      name: 'cancelbook',
+      component: () => import('../pages/cancelBook'), 
+      meta:{
+        showfoot:false   
+     }
+    },
    
   ]
 })

@@ -1,8 +1,8 @@
 <template>
       <div id="app"> 
-              <keep-alive>
+              
                 <router-view></router-view>
-              </keep-alive> 
+              
                <Footbot v-show="$route.meta.showfoot"></Footbot>     
       </div>
 </template> 

@@ -333,7 +333,10 @@ export default {
                 morPoint:vm.morPoint,
                 hairString:vm.hairString, //选址项目
             }
-            this.$router.push({path:'', query:{queryInfo}})
+            console.log(queryInfo)
+            this.$router.push({path:'/mybook', query:{queryInfo}})
+            localStorage.setItem('queryInfo',vm.hairString)
+            console.log(localStorage.getItem('queryInfo'))
         }
 
     },
