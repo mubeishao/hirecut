@@ -63,7 +63,7 @@ export default {
     data(){
         return{
            selectProject:'顾客评价',
-           active:'',
+           active:0,
            currentIndex:1,
            userList:[
                {
@@ -88,6 +88,9 @@ export default {
     methods:{
         customer(index){
              this.currentIndex = index
+        },
+        getActive(){
+             
         }
     },
     filters: {

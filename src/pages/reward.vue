@@ -17,13 +17,10 @@
               <div class="english">tong</div>
          </div>
          <div class="money">
-              <!-- <img src="../../static/images/shang_07.png" width="70" height="70"/> -->
-              <!-- <ul class="circle" v-show="show">
-                  <li>{{money}}</li>
-              </ul> -->
               <ul  :class="show ? 'circle2':'circle'">
                   <li v-show="!show" class="cirli1">
-                     {{money}}
+                    <!-- <countTo ref='example' :startVal='startVal' :endVal='endVal' :duration='1000' :decimals="0"></countTo> -->
+                    {{money}}
                   </li>
                    <li v-show="show" class="cirli2">
                        <input placeholder="输入金额" v-model="moneyOne"  class="place"/>
@@ -31,11 +28,15 @@
               </ul>
               <p class="click">点击按键随机打赏</p>
               <ul class="extra">
-                  <li v-for="(item,index) in allmoney" :key="index" @click="reward(item.money)">
+                  <li v-for="(item,index) in allmoney" :key="index" @click="reward(item.money,index,item.text)" :class="currentIndex==index?'bgm':'bgm2'">
                       {{item.money}}
                   </li> 
               </ul>
-              <input type="text"  class="text" placeholder="说点什么吧" />
+              <input type="text"  v-model="word"  class="text" placeholder="说点什么吧" />   
+
+              <div v-show="showTran" :class="showTran?'trans':''">{{word}}</div>
+              
+
               <div class="wx">
                   <img src="../../static/images/shang_11.png"/>
               </div> 
@@ -44,29 +45,39 @@
 </template>
 <script>
 import HeaderTop from '../components/header'
+import countTo from 'vue-count-to';
 export default {
     data(){
         return{
+           showTran:false, 
+           count:0,
            name:'打赏TA',
            money:"8.88",
+           currentIndex:0,
            show:false,
            moneyOne:"",
+           KPI:0,
+           word:'',
            allmoney:[
                {
                    id:1,
-                   money:1.24
+                   money:1.24,
+                   text:'辛苦你了'
                },
                 {
                    id:2,
-                   money:3.24
+                   money:3.24,
+                   text:'爱你一万年'
                },
                 {
                    id:3,
-                   money:6.66
+                   money:6.66,
+                    text:'棒棒哒'
                },
                 {
                    id:4,
-                   money:7
+                   money:9.99,
+                    text:'你的死忠粉'
                },
                 {
                    id:5,
@@ -76,21 +87,59 @@ export default {
         }
     },
     components:{
-        HeaderTop
+        HeaderTop,countTo
+    },
+    mounted(){
+        let vm = this
+      
     },
     methods:{
          goback(){
           this.$router.go(-1);//返回上一页
         } ,
-        reward(item){
+        reward(item,index,text){
+          var num = null;
+          this.currentIndex = index
+          this.word = text
+          this.money = 0;
           if(item=="其他金额"){
             this.show = true
           }else{
-            this.money = item
             this.show = false
+            this.showTran = true 
+            if(item.toString().indexOf('.') == -1){
+                var num = Math.floor(parseInt(item))-1 
+            }else{
+                var num =  Math.floor(item)
+            }      
+            var t = setInterval(() => {
+                num+=0.01;  
+                this.money  =  num.toFixed(2)
+                if(this.money == item){    
+                    this.showTran =false    
+                    clearInterval(t)
+                }
+
+            }, 10);
           }  
           
-        }
+        },
+        addNum(item){
+         let vm = this
+         var timer = null
+         let start = 0;
+         let step = 0;
+          this.money = item
+         timer = setInterval(function(){
+             start +=0.1;
+             if(start = item){
+                  console.log(start)
+                //   this.money = item
+                 clearInterval(timer)
+                  timer = null
+             }  
+         },100)
+     }      
     }
 }
 </script>
@@ -205,7 +254,6 @@ export default {
     .extra{
         display: flex;
         justify-content: space-between;
-        color: #333333;
     }
     .extra li{
         width: 1rem;
@@ -213,7 +261,6 @@ export default {
         line-height: 0.5rem;
         text-align: center;
         border: 0.01rem solid #ececec;
-        color: #333333;
         font-size: 0.22rem;
         margin-right: 0.1rem;
         font-weight: bold;
@@ -242,4 +289,45 @@ export default {
     .place::-webkit-input-placeholder{
        color: #fb516b;;
     }
+    .trans{
+        position: relative;
+        /* transition: all .3s ease; */
+        animation:mymove 1.5s ease;
+        color: #fb516b;
+    }
+    .bgm{
+        background: #fb516b;
+        color: #ffffff;
+    }
+    .bgm2{
+        background: #ffffff;
+        color: #333333;
+    }
+
+
+
+    @keyframes mymove
+        {
+            from {top:0px;}
+            to {top:-200px;}
+        }
+
+    @-webkit-keyframes myfirst{
+         0%{
+              transform:translateY(20px);
+              opacity: 1;
+         }
+          50%{
+              transform:translateY(40px);
+              opacity: 0.6;
+         }
+          100%{
+              transform:translateY(60px);
+              opacity: 0;
+         }
+    }
+    
+
+
+
 </style>

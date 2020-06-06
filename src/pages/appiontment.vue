@@ -14,8 +14,9 @@
                     <div class="intro">
                         <p class="name">龙江店</p>
                         <p class="fontS">
-                            <img src="../../static/images/picture_11.png" width="8" height="10" class="nanjing" />
-                            南京市</p>
+                            <img src="../../static/images/picture_11.png" width="7" height="8" class="nanjing" />
+                            <span>南京市</span>
+                        </p>
                         <p class="fontS">
                               <img src="../../static/images/picture_07.png" width="8" height="10" />
                             0551-4685554</p>
@@ -245,12 +246,17 @@ export default {
     .fontS{
         font-size: 0.2rem;
         color: #9b9b9b;
-        margin: 0.1rem 0;
-        vertical-align: middle;
+        margin: 0.12rem 0;
+        
         
     }
+    .fontS img{
+        vertical-align: middle;
+    }
+
     .nanjing{
         color: #9b9b9b;
+        vertical-align: middle;
     }
     .telphone{
         padding-top: 0.16rem;

@@ -24,7 +24,7 @@
                 </div>
             </li>
         </ul>
-        <div class="img" @click="unting">
+        <div class="img"  @click="unting">
            
         </div> 
     </div>
@@ -40,8 +40,10 @@ export default {
     components:{
         HeaderTop
     },
-    unting(){
+    methods:{
+        unting(){
         
+       }
     }
 }
 </script>

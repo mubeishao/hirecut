@@ -163,7 +163,7 @@ export default {
              }
            
              vm.count = vm.pickProject.length  
-
+             console.log(vm.count)
              
         },
         showImg(){

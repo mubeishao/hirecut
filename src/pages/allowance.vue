@@ -12,15 +12,14 @@
                                 <img src="../../static/images/taocan_03.png" width="12" height="12"/>
                                 <span>{{item.card}}</span>
                             </h2> 
-                            <p>剩余12次</p>
+                            <p>剩余{{item.sheng}}次</p>
                         </div> 
-                        <p class="percent"><van-progress color="#fb516b"  track-color="#4a4a4a"    :percentage="12" /></p>
-                        <!-- <p class="percent">
-                            <progress-bar leftBg="#ffffff" bgc="#4a4a4a" ballBgc="red"  :value="12" 
-                            ></progress-bar>
-                        </p> -->
+                       
+                        <p class="percent">
+                          <progressBar :value="item.sheng" :max="100"></progressBar>
+                        </p>
                         <div class="times">
-                                <p>会员专享,充{{item.month}}送{{item.month}}</p>
+                                <p>会员专享,充{{item.money1}}送{{item.money1}}</p>
                                 <p class="extra">查看详情次</p>
                         </div>
                    </div>
@@ -36,6 +35,7 @@
 </template>
 <script>
 import HeaderTop from '../components/header'
+import progressBar from '../components/progreeeBar'
 export default {
     data(){
         return{
@@ -51,7 +51,7 @@ export default {
                  {
                    money1:2000,
                    mall:'龙江店',
-                   card:'洗发卡',
+                   card:'染发卡',
                    month:10,
                    sheng:22
                }
@@ -59,20 +59,20 @@ export default {
         }
     },
     components:{
-        HeaderTop
+        HeaderTop,progressBar
     }
 }
 </script>
 <style scoped>
      .card{
          width: 90%;
-         height: 2rem;
+         height: 2.4rem;
          margin: 0 auto;
          border-radius: 0.05rem;
          background: url("../../static/images/member1_07.png") no-repeat;
          background-size: 100% 100%;
          margin-bottom: 1.2rem;
-         padding-bottom: 0.05rem;
+        
      }
      .memcard{
          display: flex;
@@ -89,7 +89,8 @@ export default {
          vertical-align: middle;
      }
       .percent{
-         margin-top: 0.2rem;
+         padding-top: 0.01rem;
+        
      }
      .reward span{
          font-size: 0.4rem;
@@ -103,12 +104,12 @@ export default {
          display: flex;
          justify-content: space-between;
          padding: 0.24rem 0.2rem 0  0.2rem;
-         font-size: 0.22rem;
+         font-size: 0.2rem;
          
      }
       .extra{
          font-size: 0.22rem;
-        color: #fb516b;
+         color: #fb516b;
      }
      .deal{
          display: flex;
@@ -123,10 +124,9 @@ export default {
      }
      .outday{
          width: 98%;
-         margin: 0.4rem auto;
+         margin: 0.5rem auto 1.6rem 0;
          color: #666666;
-         font-size: 0.22rem;
-         margin-bottom: 0.8rem;
+         font-size: 0.22rem;     
      }
      .outday p{
          margin: 0.1rem 0;

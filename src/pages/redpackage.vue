@@ -1,7 +1,11 @@
 <template>
     <div class="content">
         <HeaderTop :rightContent="selectProject"/>
-        <div class="table">
+         <van-tabs v-model="active"  color="currentIndex==active?'apple':'apple2'" @click="getActive">
+                                <van-tab :title="unused"></van-tab>
+                                <van-tab :title="outday"></van-tab>
+         </van-tabs>
+        <!-- <div class="table">
                  <ul class="used">
                      <li v-for="(item,index) in arrList" :key="index" @click="current(index)">
                          <div :class="currentIndex==index?'apple':'apple2'">
@@ -11,7 +15,7 @@
                          
                      </li>    
                  </ul>
-        </div>
+        </div> -->
         <ul class="packeage">
             <li class="bgm" v-for="(item,index) in chargelist" :key="index">
                 <div class="padd">
@@ -37,7 +41,7 @@ export default {
              unused:"未使用(1)",
              outday:"已过期",
              selectProject:"我的红包",
-             active:'',
+             active:0,
              currentIndex:'',
              arrList:[
                  {
@@ -77,6 +81,9 @@ export default {
          },
          current(index){
              this.currentIndex = index
+         },
+         getActive(e){
+              this.currentIndex = e
          }
     },
     components:{
@@ -113,8 +120,8 @@ export default {
      }
      .apple{
           width: 1.2rem;
-          /* color: #333333;
-          border-bottom: 0.05rem solid #000000; */
+          color: #333333;
+          /* border-bottom: 0.05rem solid #000000;  */
           margin: 0 auto;
           font-weight: bold;
           transition: all 0.2s ease;   
@@ -179,5 +186,7 @@ export default {
          margin-top: 0.5rem;
          color: #999999;
          font-size: 0.18rem;
+         letter-spacing:0.02rem;
+         line-height: 0.22rem;
      }
 </style>

@@ -29,7 +29,7 @@
                         <span>套餐余量</span>
                       </div>
                   </router-link>
-                  <router-link to="/cart">
+                  <router-link to="/cancelbook">
                     <div class="member">
                         <img src="../../static/images/huaban_13.png" width="22" height="22"/>
                         <span>我的预约</span>

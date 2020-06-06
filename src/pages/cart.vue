@@ -1,5 +1,6 @@
 <template>
     <div class="content">
+         <HeaderTop :rightContent="selectProject"/>
          <div class="bgm">
             <div class="head">
                     <input placeholder="请输入产品名称" />
@@ -32,9 +33,11 @@
     </div>
 </template>
 <script>
+import HeaderTop from '../components/header'
 export default {
     data(){
         return{
+            selectProject:"购物车",
             list:[
                 {
                     name:'排序'
@@ -100,6 +103,9 @@ export default {
         godetail(){
             this.$router.push({path:'/goodsdetail'})
         }
+    },
+    components:{
+        HeaderTop
     }
 }
 </script>
@@ -163,7 +169,7 @@ export default {
     .sort li:last-child{
         border-right: none;
     }
-    .saler{
+    .saler{ 
         width: 94%;
         margin: 0.16rem auto;
         display: flex;

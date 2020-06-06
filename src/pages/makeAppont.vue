@@ -1,7 +1,8 @@
 <template>
     <div class="content">
-          <HeaderTop :rightContent="rightContent"/>
-          <div class="pic"></div>
+          <div class="pic" :style="{backgroundImage: 'url(../../static/images/picture_01.png)'}">
+              <img src="../../static/images/left_03.png"  width="25" height="25" @click="leftback" />
+          </div>
           <div class="white">
                     <div class="tel">
                             <div>
@@ -30,11 +31,16 @@ import HeaderTop from '../components/header'
    export default{
         data(){
             return{
-                rightContent:"我要预约"
+                rightContent:""
             }
      },
      components:{
          HeaderTop
+     },
+     methods:{
+         leftback(){
+             this.$router.back()
+         }
      }
    }
 </script>
@@ -46,12 +52,18 @@ import HeaderTop from '../components/header'
         background: #f7f7f7;
     }
     .pic{
+        position: relative;
         width: 100%;
         height: 7.5rem;
         background: url('../../static/images/picture_01.png') no-repeat;
         background-size: 100% 100%;
         z-index: 2;
         
+    }
+    .pic img{
+         position: absolute;
+         left: 0.1rem;
+         top: 0.2rem;
     }
     .tel{
         display: flex;

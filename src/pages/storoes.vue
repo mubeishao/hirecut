@@ -19,23 +19,22 @@
                                     <p>推荐库帮你找到更美的自己</p>
                                     <p class="heart">心动不如行动吧~</p>
                                 </div>
-                            </div>   
-                            <img v-if="item.img" :src="item.img" alt="加载错误"   />
-                            <!-- <div v-if="item.img" class="imgRound" :style="{backgroundImage : `url(${item.img})` }"></div> -->
-                            <div class="item-body">
-                                <!-- <div class="item-desc">{{item.title}}</div> -->
-                                <div class="item-footer">
-                                    <!-- <div v-if="item.avatar" class="avatar" :style="{backgroundImage : `url(${item.avatar})` }"></div> -->
-                                    <div class="image">
-                                         <div class="name">{{item.user}}</div>
-                                         <div  class="like">{{item.like}}</div>
+                            </div>  
+                            <div @click="goDetail">
+                                <img v-if="item.img" :src="item.img" alt="加载错误"   />
+                                <!-- <div v-if="item.img" class="imgRound" :style="{backgroundImage : `url(${item.img})` }"></div> -->
+                                <div class="item-body">
+                                    <!-- <div class="item-desc">{{item.title}}</div> -->
+                                    <div class="item-footer">
+                                        <!-- <div v-if="item.avatar" class="avatar" :style="{backgroundImage : `url(${item.avatar})` }"></div> -->
+                                        <div class="image">
+                                            <div class="name">{{item.user}}</div>
+                                            <div  class="like">{{item.like}}</div>
+                                        </div>
+                                    
                                     </div>
-                                    <!-- <div class="like" :class="item.liked?'active':''" >
-                                        <i ></i>
-                                        <div class="like-total">{{item.like}}</div>
-                                    </div> -->
                                 </div>
-                            </div>
+                           </div>    
                         </div>
                     </template>
              </waterfall>
@@ -122,6 +121,9 @@ export default {
        },
        loadmore(){
            
+       },
+       goDetail(){
+           this.$router.push('/detailwork')
        }
     }
 }

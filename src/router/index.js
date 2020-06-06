@@ -246,6 +246,14 @@ export default new Router({
         showfoot:false   
      }
     },
+    {
+      path: '/detailwork',
+      name: 'detailwork',
+      component: () => import('../pages/detailWorks'), 
+      meta:{
+        showfoot:false   
+     }
+    },
    
   ]
 })

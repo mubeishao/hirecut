@@ -41,7 +41,7 @@
                         />
               </div>
               <img src="../../static/images/now_03.png" class="now"/>
-              <div>{{queryInfo}}</div>
+             
           </div>
     </div>
 </template>
@@ -86,13 +86,12 @@ import HeaderTop from '../components/header'
      },
      watch:{
            queryInfo(newVal,old){
-                    console.log(newVal)
+                   
            }
      },
      created(){
          const query = localStorage.getItem('queryInfo')
-         console.log(query)
-         console.log(123)
+        
      },
      mounted(){
       

@@ -58,7 +58,7 @@
                  </div>
                  <footer>
                      <div>
-                         <van-icon name="underway-o" />
+                         <van-icon name="underway-o" class="clock" />
                          <span>时间选择：<span class="period">{{periodDay}} {{morDay}}--{{morPoint}}</span></span>
                      </div>
                      <div class="next" @click="nextPage">下一步</div>
@@ -167,7 +167,7 @@ export default {
                  {time:'8:30',status:0},
                  {time:'9:00',status:1},
                  {time:'10:30',status:0},
-                 {time:'21:30',status:1},
+                 {time:'21:30',status:0},
                  {time:'12:00',status:0},
              ],
              middleTime:[
@@ -239,8 +239,7 @@ export default {
               this.selectday = index
               vm.periodDay = day
               vm.timePoint = week
-              console.log(day)
-              console.log(week)
+             
 
         },
         // 早上
@@ -250,29 +249,33 @@ export default {
                   Toast('此时间端已经预约')
                   return
               }
-              if(mon[index+1].status==1||mon[index+ parseInt(vm.query)].status==1){
-                  Toast('此时间段不足')
-                      return
+  
+              if(index > mon.length-1 || index == mon.length-1){
+                 var monIndex = mon.length -1
+               
+              }else{
+                 var monIndex = index+1
+                
               }
-            //   if(index>vm.curentmor || index < index+ parseInt(vm.query)){
-            //         mon.map(key=>{
-            //            if(key.status==0){
-            //               Toast('此时间段不足')
-            //               return
-            //             }
-            //         }) 
-            //   }
-              console.log(123)
+            
+              if(mon[index].status==1||mon[monIndex].status==1){
+                  Toast('此时间段不足')
+                  return
+              }
               vm.curentmor2 = 100
               vm.curentmor3 = 100
-              vm.query = 3
+            
               vm.curentmor = index;
-              const number = mon[index+ parseInt(vm.query)-1].status
+            //   const number = mon[index+ parseInt(vm.query)-1].status
+              console.log(vm.query)
               vm.nextCount = index+ parseInt(vm.query)
               vm.morDay = time
+              console.log(vm.nextCount)
 
             if(vm.nextCount>vm.morning.length){
                 let num = vm.nextCount - vm.morning.length
+                console.log(num)
+
                 vm.nextCount2 = num
                 vm.curentmor2 = -1
                 vm.morPoint = vm.middleTime[num-1].time
@@ -524,6 +527,9 @@ export default {
         color: #939393;
         margin-top: 0.6rem;
         padding-left: 0.2rem;
+    }
+    .clock{
+        vertical-align: middle;
     }
     .period{
         color: red;

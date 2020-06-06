@@ -5,16 +5,7 @@
                                 <van-tab :title="unused"></van-tab>
                                 <van-tab :title="out"></van-tab>
          </van-tabs>
-       <!-- <div class="table">
-                 <ul class="used">
-                     <li>
-                         <div :class="currentIndex==index?'apple':'apple2'">
-                              <p class="one"> {{item.unused}}</p>
-                              <p :class="currentIndex==index?'iphone':''"></p>
-                         </div>  
-                     </li>    
-                 </ul>
-        </div>  -->
+      
         <ul class="myorder">
             <li class="order"  v-for="(item,index) in orderlist" :key="index">
                     <div class="day">订单日期: {{item.day}}</div>
@@ -73,7 +64,7 @@ export default {
     methods:{
          getActive(e){
              console.log(this.active)
-              this.currentIndex = e
+             this.currentIndex = e
 
          }
     }

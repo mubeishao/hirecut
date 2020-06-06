@@ -1,6 +1,6 @@
 <template>
      <div class="content" >
-        <div class="img" :style="images">12</div>
+        <div class="img" :style="images">{{value}}</div>
         <div class="progress" >
             <div  class="wrap" :style="imaWarp"></div>       
         </div>

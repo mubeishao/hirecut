@@ -1,12 +1,13 @@
 <template>
     <div class="content">
          <div class="detail">
-               <div class="image">
-                  <img src="../../static/images/goods_de.png" class="imgOne" />
+              <div class="image" :style="{backgroundImage: 'url(../../static/images/goods_de.png)'}">
+                  <!-- <img src="../../static/images/goods_de.png"  class="imgOne" /> -->
                   <div class="cart">
                        <!-- <img src="../../static/images/goods1_05.png" width="30" height="30"  /> -->
                       <span class="add">1</span>
                   </div>
+                  <img src="../../static/images/left_03.png" width="25" height="25"  @click="leftback"   />
                </div>
                <div class="goodsInfo">
                     <div class="hair">染发</div>
@@ -30,7 +31,13 @@ export default {
         return{
 
         }
+    },
+    methods:{
+      leftback(){
+        this.$router.back()
+      }    
     }
+   
 }
 </script>
 
@@ -46,8 +53,10 @@ export default {
                background: #ffffff;
          }
         .image{
+            position: relative;
             width: 94%;
             height: 5rem;
+            background-size: 100% 100%;
             margin: 0 auto;
             .imgOne{
                 width: 100%;
@@ -73,6 +82,11 @@ export default {
                 float: right;
                 margin-top: -0.12rem;
                 margin-right: -0.1rem;
+            }
+            .imgleft{
+                position: absoute;
+                top: 0rem;
+                left: 0.1rem;
             }
 
         }

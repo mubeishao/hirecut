@@ -1,12 +1,20 @@
+.van_tab{
+    color: #999999 !important;
+}
 .van-tabs__line{
-    background: #000000;
-    width: 60px !important;
+    background: #333333;
+    width: 50px !important;
 }
 .van-tab__text{
     font-size: 0.24rem;
-    font-weight: bold;
+    color: #999999;
 }
 .van-search{
     padding: 0 !important;
     background: #ffffff !important;
+}
+.van-tab--active .van-tab__text{
+    color: #333333;
+    font-weight: bold;
+
 }
