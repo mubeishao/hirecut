@@ -254,6 +254,38 @@ export default new Router({
         showfoot:false   
      }
     },
+    {
+      path: '/comment',
+      name: 'comment',
+      component: () => import('../pages/comment'), 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('../pages/register'), 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/bindphone',
+      name: 'bindphone',
+      component: () => import('../pages/bindphone'), 
+      meta:{
+        showfoot:false   
+     }
+    },
+    {
+      path: '/picimg',
+      name: 'picimg',
+      component: () => import('../pages/picImg'), 
+      meta:{
+        showfoot:false   
+     }
+    },
    
   ]
 })

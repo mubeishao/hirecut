@@ -64,7 +64,7 @@
                                 <p class="award"><van-icon name="arrow" size="12" class="van" /></p>
                               </li>
                           </router-link>
-                             <router-link to="/onlinescore">
+                             <router-link to="/cart">
                               <li>
                                 <div class="red">
                                     <img src="../../static/images/dian_19.png" width="26" height="24" />

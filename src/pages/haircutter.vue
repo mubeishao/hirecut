@@ -93,7 +93,7 @@
                         <img src="../../static/images/12_16.png" width="13" height="14"/>
                         <span>他的作品</span>
                     </div>
-                    <div class="more">
+                    <div class="more" @click="goPic">
                         <span>更多作品</span><van-icon name="arrow" color="#dcdddf" size="14" />
                     </div>
               </div>
@@ -146,6 +146,9 @@ export default {
     methods:{
         goReward(){
             this.$router.push({path:"/reward"})
+        },
+        goPic(){
+            this.$router.push({path:'/picimg'})
         }
     }
     

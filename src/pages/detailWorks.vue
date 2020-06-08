@@ -27,9 +27,12 @@
                                <span @click="zan" :class="show?'gift_job':''"><van-icon name="good-job-o" />
                                       <span class="count">{{countZan}}</span>
                                </span>
-                               <span class="zan"><van-icon name="gift-card-o" />
-                                     <span >打赏TA</span>
-                               </span>
+                               <router-link to="/reward">
+                                    <span class="zan" >
+                                        <van-icon name="gift-card-o" />
+                                            <span >打赏TA</span>
+                                    </span>
+                                </router-link>
                          </p>
                   </li>
               </ul>
@@ -39,7 +42,7 @@
                    <span class="other">来自其他美丽达人的评论</span>
                    <span class="beauty">
                        <img src="../../static/images/pan.png" width="10" height="20" />
-                       <span>评论</span>
+                       <span @click.prevent="comment">评论</span>
                    </span>
                </p>
           </div>
@@ -48,12 +51,14 @@
 </template>
 <script>
 import HeaderTop from '../components/header'
+import { Toast } from 'vant'
 export default {
     data(){
         return{
              selectProject:"作品",
-             countZan:0,
-             show:false,
+             countZan:localStorage.getItem('zan')||0,
+             count:0,
+             show:localStorage.getItem('zan'),
              list:[
                  {
                      img:'../../static/images/works_03.png'
@@ -63,7 +68,8 @@ export default {
                  },
                  {
                      img:'../../static/images/works_03.png'
-                 }
+                 },
+                 
              ]
         }
     },
@@ -73,17 +79,20 @@ export default {
     methods:{
         zan(){
              let vm = this
-             console.log(localStorage.getItem('zan'))
              if(localStorage.getItem('zan')){
                  return 
              }else{
                  vm.countZan = vm.countZan +1
-                 localStorage.setItem('zan',vm.countZan)
+                 localStorage.setItem('zan',vm.countZan) 
                  vm.show = true
+                 Toast('点赞+1')
              }
         },
         bookOne(){
              this.$router.push({path:'/selectproject'})
+        },
+        comment(){
+               this.$router.push({path:'/comment'})
         }
     }
 }
@@ -149,7 +158,7 @@ export default {
         flex-wrap: wrap;
     }
     .itemImg li{
-        margin-right: 0.1rem;
+        margin-right: 0.12rem;  
     }
     .gift{
         margin: 0.16rem auto;
@@ -174,8 +183,9 @@ export default {
         vertical-align: top;
     }
     .count{
-        font-size: 0.2rem;
+        font-size: 0.26rem;
         color: #999999;
+        
     }
 
     .beauty span{

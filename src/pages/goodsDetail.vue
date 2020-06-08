@@ -5,7 +5,7 @@
                   <!-- <img src="../../static/images/goods_de.png"  class="imgOne" /> -->
                   <div class="cart">
                        <!-- <img src="../../static/images/goods1_05.png" width="30" height="30"  /> -->
-                      <span class="add">1</span>
+                      <span :class="showShu?'add':''">{{showShu ?goodsCount:''}}</span>
                   </div>
                   <img src="../../static/images/left_03.png" width="25" height="25"  @click="leftback"   />
                </div>
@@ -21,7 +21,7 @@
           <div class="tang">棕色烫染</div>
           <div class="bottom">
               <img src="../../static/images/goods1_09.png" />
-               <img src="../../static/images/goods1_11.png" />
+               <img src="../../static/images/goods1_11.png" @click="addGoods" />
           </div>
     </div>
 </template>
@@ -29,13 +29,18 @@
 export default {
     data(){
         return{
-
+            goodsCount:0,
+            showShu:false
         }
     },
     methods:{
       leftback(){
         this.$router.back()
-      }    
+      },
+      addGoods(){
+          this.showShu = true
+          this.goodsCount++
+      }
     }
    
 }

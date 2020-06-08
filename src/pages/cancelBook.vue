@@ -29,21 +29,39 @@
                                 </p>
                          </div>
                      </div>
-                     <div class="been">已取消</div>
+                     <div  :class="show ? 'been beenbook':'been beenbook2'" @click="cancelTicket">{{cancel}}</div>
               </div>
           </div>
     </div>
 </template>
 <script>
 import HeaderTop from '../components/header'
+import { Dialog } from 'vant';
 export default {
     data(){
         return{
-           
+           cancel:'取消预约',
+           show:true
         }
     },
     components:{
         HeaderTop
+    },
+    methods:{
+        cancelTicket(){
+            
+             Dialog.confirm({
+                title: '',
+                message: '确定要取消此次预约吗?',
+                })
+                .then(() => {
+                     this.show =false
+                    this.cancel = '已取消'
+                })
+                .catch(() => {
+                    // on cancel
+                });
+        }
     }
 }
 </script>
@@ -121,6 +139,14 @@ export default {
        margin-left: 1.8rem;
        
    }
+   .beenbook{
+       color: #ff2145;
+       border: 0.01rem solid #ff2145;
+   }
+   .beenbook2{
+       color: #d8d8d8;
+       border: 0.01rem solid #d0d0d0;
+   }
    .clock{
        position: fixed;
        left: 30%;
@@ -142,7 +168,7 @@ export default {
         text-align: left;
    }
    .clock img{
-        margin-top: 0.12rem;
+        margin-top: 0.18rem;
    }
    .noon{
        color: #f9fff8;
@@ -153,6 +179,7 @@ export default {
    .hour{
        color: #ffdcea;
        font-size: 0.22rem;
+       padding-top: 0.08rem;
       
    }
 </style>

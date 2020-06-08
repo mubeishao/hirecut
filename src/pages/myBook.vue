@@ -40,7 +40,7 @@
                         show-word-limit
                         />
               </div>
-              <img src="../../static/images/now_03.png" class="now"/>
+              <img src="../../static/images/now_03.png" class="now"  @click="goBookNow"/>
              
           </div>
     </div>
@@ -98,6 +98,11 @@ import HeaderTop from '../components/header'
      },
      components:{
          HeaderTop
+     },
+     methods:{
+         goBookNow(){
+             this.$router.push({path:'/cancelbook'})
+         }
      }
    }
 </script>
@@ -197,5 +202,11 @@ import HeaderTop from '../components/header'
        
        
        }
+   }
+</style>
+<style >
+   .van-field__label{
+       width: 100px !important;
+       border: none !important;
    }
 </style>

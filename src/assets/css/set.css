@@ -18,3 +18,21 @@
     font-weight: bold;
 
 }
+
+
+.van-field__label{
+    color:#1d1d1d !important;
+    width: 50px !important;
+   
+}
+.van-cell{
+    border-bottom: 1px solid #a7a7a7;
+    padding: 2px 0;
+    margin-bottom: 0.4rem;
+}
+.van-field__value{
+    padding-left: 0.1rem;
+}
+.van-field__button{
+    padding-bottom: 0.1rem;
+}
