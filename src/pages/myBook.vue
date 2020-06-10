@@ -13,8 +13,8 @@
                         <div class="liyang">李阳</div>
                   </div>
                   <div class="right">
-                      <p class="time">14:00至16:00</p>
-                      <p class="day">2020/4/15(周四)下午</p>
+                      <p class="time">{{queryInfo.morDay}}至{{queryInfo.morPoint}}</p>
+                      <p class="day"> {{queryInfo.periodDay}}  ({{queryInfo.timePoint}})下午</p>
                   </div>
                 
 
@@ -22,8 +22,8 @@
               <div class="project">
                       <p class="yuyue">预约项目</p>
                       <ul class="type ">
-                          <li class="hairlist"  v-for="(item,index) in typeList" :key="index">
-                              <p>{{item.name}}</p>
+                          <li class="hairlist"  v-for="(item,index) in querylist" :key="index">
+                              <p>{{item}}</p>
                           </li>
                       </ul>
               </div>
@@ -52,7 +52,8 @@ import HeaderTop from '../components/header'
             return{
                 rightContent:"我的预约",
                 address:"",
-                queryInfo:JSON.stringify(this.$route.query.queryInfo),
+                querylist:[],
+                queryInfo:this.$route.query.queryInfo,
                 typeList:[
                     {
                         name:'塑性烫(菲灵)',
@@ -90,8 +91,11 @@ import HeaderTop from '../components/header'
            }
      },
      created(){
+         let vm =this
          const query = localStorage.getItem('queryInfo')
-        
+         const info = vm.queryInfo.hairString
+         vm.querylist = info.split(',')
+         console.log( vm.querylist)
      },
      mounted(){
       

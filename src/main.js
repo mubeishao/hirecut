@@ -22,13 +22,13 @@ Vue.use(waterfall)
 Vue.use(Vant);
 
 
-Vue.config.productionTip = false
-// 解决移动端点击延迟200ms的问题
-if ('addEventListener' in document) {
-  document.addEventListener('DOMContentLoaded', function () {
-      FastClick.attach(document.body);
-  }, false);
-}
+// Vue.config.productionTip = false
+// // 解决移动端点击延迟200ms的问题
+// if ('addEventListener' in document) {
+//   document.addEventListener('DOMContentLoaded', function () {
+//       FastClick.attach(document.body);
+//   }, false);
+// }
 
 
 

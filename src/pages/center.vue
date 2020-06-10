@@ -30,10 +30,12 @@
                             <p class="line">|</p>
                         </div>  
                         <div class="intro">
-                            <p>
-                                <img src="../../static/images/dian_07.png" width="15" height="15"/>
-                                <span>会员特惠</span>
-                            </p> 
+                             <router-link to="/member">
+                                <p>
+                                    <img src="../../static/images/dian_07.png" width="15" height="15"/>
+                                    <span>会员特惠</span>
+                                </p> 
+                            </router-link>
                         </div>    
                     </div>
                 </div>

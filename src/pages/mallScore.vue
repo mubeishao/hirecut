@@ -13,7 +13,7 @@ import HeaderTop from '../components/header'
 export default {
     data(){
         return{
-          rightContent:"线上积分"
+          rightContent:"门店积分"
         }
     },
      components:{

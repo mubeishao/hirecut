@@ -1,6 +1,6 @@
 <template>
     <div class="mall">
-          <HeaderTop/>
+          <HeaderTop :rightContent="selectProject"/>
           <div class="content">
                 <div class="now">当前积分</div>
                 <div class="score">1100</div>
@@ -13,7 +13,7 @@ import HeaderTop from '../components/header'
 export default {
     data(){
         return{
-
+            selectProject:"线上积分"
         }
     },
      components:{

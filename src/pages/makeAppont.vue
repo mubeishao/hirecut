@@ -20,9 +20,9 @@
                                 <img src="../../static/images/picture_11.png" width="10" height="12" />
                                 <span>南京市钟鼓楼区普通路达到12358号</span>
            </div>
-           <div class="bottom">
-              
-           </div>
+          <router-link to="/appontment">
+               <div class="bottom" ></div>
+          </router-link>
 
     </div>
 </template>

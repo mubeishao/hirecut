@@ -57,11 +57,11 @@
                        <div class="attention">注：预约当天服务需要提前60分钟</div>
                  </div>
                  <footer>
-                     <div>
+                     <div >
                          <van-icon name="underway-o" class="clock" />
-                         <span>时间选择：<span class="period">{{periodDay}} {{morDay}}--{{morPoint}}</span></span>
+                         <span>时间选择：<span class="period">{{periodDay}}-- {{morDay}} {{morPoint}}</span></span>
                      </div>
-                     <div class="next" @click="nextPage">下一步</div>
+                     <div class="next" @click="nextPage"></div>
                  </footer>
              </div>
          </section>
@@ -70,13 +70,14 @@
 <script>
 import HeaderTop from '../components/header'
 import { Toast } from 'vant'
+import {getDate} from '../utils'
 export default {
     data(){
         return{
              selectProject:"选择项目",
              selectday:0,
              periodDay:"今天",
-             timePoint:"",
+             timePoint:"周一",
              present:0,
              curentmor:100,
              curentmor2:100,
@@ -228,6 +229,7 @@ export default {
     },
     created(){
         let vm =this
+        console.log(getDate(0))
        
     },
     mounted(){
@@ -267,15 +269,13 @@ export default {
             
               vm.curentmor = index;
             //   const number = mon[index+ parseInt(vm.query)-1].status
-              console.log(vm.query)
+           
               vm.nextCount = index+ parseInt(vm.query)
               vm.morDay = time
-              console.log(vm.nextCount)
-
+              
             if(vm.nextCount>vm.morning.length){
                 let num = vm.nextCount - vm.morning.length
-                console.log(num)
-
+            
                 vm.nextCount2 = num
                 vm.curentmor2 = -1
                 vm.morPoint = vm.middleTime[num-1].time
@@ -330,16 +330,20 @@ export default {
         nextPage(){
             let vm =this
             var queryInfo = {
-                periodDay:vm.periodDay,
+                periodDay:vm.periodDay=='今天' ? getDate(0):vm.periodDay,
                 timePoint:vm.timePoint,
                 morDay:vm.morDay,
                 morPoint:vm.morPoint,
                 hairString:vm.hairString, //选址项目
             }
             console.log(queryInfo)
+            if(vm.morDay=="" || vm.morPoint==""){
+                Toast('请选择预约时间段')
+                return 
+            }
             this.$router.push({path:'/mybook', query:{queryInfo}})
             localStorage.setItem('queryInfo',vm.hairString)
-            console.log(localStorage.getItem('queryInfo'))
+           
         }
 
     },
@@ -512,11 +516,10 @@ export default {
     }
     .next{
         width: 1.2rem;
-        height: 0.4rem;
-        line-height: 0.4rem;
+        height: 0.45rem;
         border-radius: 0.2rem;
-        background: #64635f;
-        text-align: center;
+        background: url('../../static/images/next_03.png') no-repeat;
+        background-size: 100% 100%;
         vertical-align: middle;
         margin-top: 0.2rem;
         font-size: 0.2rem;
@@ -530,6 +533,7 @@ export default {
     }
     .clock{
         vertical-align: middle;
+        margin-top: -0.06rem;
     }
     .period{
         color: red;

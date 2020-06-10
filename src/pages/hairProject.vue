@@ -6,7 +6,12 @@
                 <li v-for="(item,index) in hairlist" :key="index" class="lihair" @click="hairShow(item.hair,index)">
                     <div class="hair">
                        <p class="key">{{item.hair}}</p>
+
                        <p class="content" v-if="currentIndex==index">{{hairString}}</p>
+                       <!-- <p class="content" v-else-if="currentIndex==1">{{hairString}}</p>
+                       <p class="content" v-else-if="currentIndex==2">{{hairString}}</p>
+                       <p class="content" v-else-if="currentIndex==3">{{hairString}}</p> -->
+                       
                        <p class="value"><van-icon name="arrow-down"/></p>
                     </div>
                 </li>
@@ -47,6 +52,7 @@
     </div>    
 </template>
 <script>
+import Vue from 'vue'
 import { Toast } from 'vant';
 import next_page from '../../static/images/next_03.png'
 import HeaderTop from '../components/header'
@@ -62,7 +68,7 @@ export default {
              hairName:'',
              hairInfo:[],
              hairString:"",
-             hairServise:'理发2',
+             hairServise:'',
              hairServise2:"",
              count:0,
              hairServeTime:0,
@@ -118,7 +124,9 @@ export default {
                      serveTime:1,
                       checked:false
                  },
-             ]
+             ],
+
+             clickIndex:0
 
         }
     },
@@ -131,6 +139,7 @@ export default {
            if(vm.count==0 || vm.pickProject.length==0){
                 Toast('请选择项目');
             }else{
+
                 this.$router.push({path:"/selectproject",query:{count:vm.count,hairString:vm.hairString}})
             }
         },
@@ -139,31 +148,35 @@ export default {
             this.haristyle[val].radio = this.radio === 1 ? 0 : 1; 
         },
         change(name,serveTime,checked,index){
-            let vm =this
+            let vm = this
+            // Vue.set(vm.hairlist,'newname',name)
+            
             vm.hairName = name
-            // vm.hairdetail = vm.hairdetail + name
+            if(vm.clickIndex == 0 ){
+               
+            }
              if(checked){
                 vm.pickProject.push(vm.hairName)
                 vm.hairServeTime = vm.hairServeTime + serveTime
              }else{
-                 if(vm.pickProject.indexOf(name)>-1){
+                if(vm.pickProject.indexOf(name)>-1){
                     var i = vm.pickProject.indexOf(name)
                     vm.pickProject.splice(i,1) 
-                 }
-                //  if(vm.hairInfo.indexOf(name)>-1){
-                //      var i = vm.hairInfo.indexOf(name)
-                //      vm.hairInfo.splice(i,1)   
-                      
-                //  }
-                 vm.hairServeTime = vm.hairServeTime - serveTime
+             }
+             vm.hairServeTime = vm.hairServeTime - serveTime
              }
              vm.hairString = vm.pickProject.toString()
-             if(vm.hairServise == vm.hairServise2){
-                  vm.hairString = vm.pickProject.toString()
-             }
-           
+            //  if(vm.clickIndex == 0){
+            //       vm.hairString = vm.pickProject.toString()
+            //  }else if(vm.clickIndex == 1) {
+            //       vm.hairString2 = vm.pickProject.toString()
+            //  }else if(vm.clickIndex == 2) {
+            //       vm.hairString3 = vm.pickProject.toString()
+            //  }else if(vm.clickIndex == 3) {
+            //       vm.hairString4 = vm.pickProject.toString()
+            //  } 
              vm.count = vm.pickProject.length  
-             console.log(vm.count)
+             
              
         },
         showImg(){
@@ -173,15 +186,18 @@ export default {
         },
         hairShow(hair,index){
              let vm = this    
-            // vm.hairString = ''       
-            //  vm.pickProject = []
+             vm.clickIndex = index 
+             console.log(vm.clickIndex)
+            //  vm.hairString = ''     
+            //  vm.pickProject = []  
+             vm.hairServeTime = 0
              this.hairServise = hair
              this.show = true  
              vm.hairInfoName = hair
              vm.currentIndex = index
-             vm.haristyle.map(item=>{
-                 item.checked = false
-             })
+            //  vm.haristyle.map(item=>{
+            //      item.checked = false
+            //  })
             
         } 
     },
