@@ -336,13 +336,12 @@ export default {
                 morPoint:vm.morPoint,
                 hairString:vm.hairString, //选址项目
             }
-            console.log(queryInfo)
             if(vm.morDay=="" || vm.morPoint==""){
                 Toast('请选择预约时间段')
                 return 
             }
             this.$router.push({path:'/mybook', query:{queryInfo}})
-            localStorage.setItem('queryInfo',vm.hairString)
+            localStorage.setItem('queryInfo',JSON.stringify(queryInfo))
            
         }
 

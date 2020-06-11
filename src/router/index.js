@@ -27,7 +27,7 @@ export default new Router({
   routes: [
     {
       path:'/', 
-      redirect:'/main'
+      redirect:'/register'
     },
     {
       path: '/main',

@@ -152,3 +152,9 @@ export default {
         background-size: 100% 100%;
     }
 </style>
+ <style>
+     .van-button--primary{
+         background-color:#333333 !important;
+         border: #333333;
+     }
+</style>

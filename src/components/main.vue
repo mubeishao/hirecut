@@ -198,6 +198,7 @@ export default {
   border: 0.014rem solid #dfdfdf;
   margin: 0 0.1rem;
   font-size: 0.22rem;
+  padding-top: 0.01rem;
 }
 
 .pic{

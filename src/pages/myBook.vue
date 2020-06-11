@@ -93,9 +93,13 @@ import HeaderTop from '../components/header'
      created(){
          let vm =this
          const query = localStorage.getItem('queryInfo')
-         const info = vm.queryInfo.hairString
-         vm.querylist = info.split(',')
-         console.log( vm.querylist)
+         console.log(query)
+         if(query){
+                const queryString = JSON.parse(query)
+                const info = queryString.hairString
+                vm.querylist = info.split(',')
+                console.log(queryString)
+         }
      },
      mounted(){
       
@@ -121,12 +125,12 @@ import HeaderTop from '../components/header'
            .user{
                display: flex;
                justify-content: space-between;
-               height: 1rem;
+               height: 1.1rem;
                background: #ffffff;
                border-radius: 0.6rem;
                .left{
-                   margin-left: 0.05rem;
-                   margin-top: 0.04rem;
+                   margin-left: 0.1rem;
+                   margin-top: 0.03rem;
                    display: flex;
                    justify-content: center;
                    align-items: center;
@@ -140,8 +144,8 @@ import HeaderTop from '../components/header'
                    background: #ff2245;
                    height: 0.8rem;
                    border-radius: 0.5rem;
-                   margin-top: 0.1rem;
-                   margin-right: 0.06rem;
+                   margin-top: 0.15rem;
+                   margin-right: 0.08rem;
                    color: #ffffff;
                    text-align: center;
                    .time{
@@ -210,7 +214,7 @@ import HeaderTop from '../components/header'
 </style>
 <style >
    .van-field__label{
-       width: 100px !important;
+       width: auto !important;
        border: none !important;
    }
 </style>
