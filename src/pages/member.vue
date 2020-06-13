@@ -8,7 +8,7 @@
                        <p class="money"><span>{{item.money}}</span>¥</p>
                         <div class="num">
                             <p>次卡充值{{item.charge}}元,赠送{{item.give}}次</p>
-                            <img src="../../static/images/member_03.png" height="24" width="70" />
+                            <img src="../../static/images/member_03.png" height="26" width="70" />
                         </div>
                         <div class="hair">{{item.washhair}}</div>
                  </div>

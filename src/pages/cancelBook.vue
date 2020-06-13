@@ -5,7 +5,7 @@
               <p class="time">预约日期:2020.4.15</p>
               <div class="day">
                     <div class="clock">
-                        <img src="../../static/images/12_05.png" width="35" height="35" />
+                        <img src="../../static/images/clockone2.png" width="35" height="35" />
                         <div >
                             <p class="noon" >明天14:00</p>
                             <p class="hour">14小时</p>
@@ -24,12 +24,16 @@
                                <p class="server server2">预约门店</p>
                                 <p class="jiangbei">江北店</p>
                                 <p class="mgr">
-                                    <span class="tel">13812342250</span>
+                                  
+                                    <a class="tel" href="tel:13812342250">13812342250</a>
                                     <img src="../../static/images/12_05.png" width="20" height="20" />
+                                    <!-- <span class="vanicon">
+                                         <van-icon name="phone-o" />
+                                    </span> -->
                                 </p>
                          </div>
                      </div>
-                     <div  :class="show ? 'been beenbook':'been beenbook2'" @click="cancelTicket">{{cancel}}</div>
+                     <div  :class="show ? 'been beenbook':'been beenbook2'" @click="cancelTicket">{{!show ? cancel:''}}</div>
               </div>
           </div>
     </div>
@@ -49,18 +53,21 @@ export default {
     },
     methods:{
         cancelTicket(){
-            
-             Dialog.confirm({
-                title: '',
-                message: '确定要取消此次预约吗?',
+             let vm = this;
+             if(vm.show){
+                 Dialog.confirm({
+                 title: '',
+                 message: '确定要取消此次预约吗?',
                 })
                 .then(() => {
                      this.show =false
-                    this.cancel = '已取消'
+                     this.cancel = '已取消'
                 })
                 .catch(() => {
                     // on cancel
                 });
+             }
+            
         }
     }
 }
@@ -117,6 +124,7 @@ export default {
    .tel{
        color: #4f4f4f;
        font-size: 0.24rem;
+      
    }
    .jiangbei{
        margin-bottom: 0.2rem;
@@ -127,10 +135,13 @@ export default {
    .mgr img{
        vertical-align: middle;
    }
+   .vanicon{
+       vertical-align: middle;
+   }
    .been{
-       width: 2.4rem;
+       width: 2rem;
        height: 0.7rem;
-       line-height: 0.7rem;
+       line-height: 0.76rem;
        border-radius: 0.7rem;
        color: #d8d8d8;
        border: 0.01rem solid #d0d0d0;
@@ -140,8 +151,12 @@ export default {
        
    }
    .beenbook{
-       color: #ff2145;
-       border: 0.01rem solid #ff2145;
+       /* color: #ff2145;
+       border: 0.01rem solid #ff2145; */
+       width: 2rem;
+       height: 0.7rem;
+       background: url('../../static/images/cancel9.png') no-repeat;
+       background-size: 100% 100%;
    }
    .beenbook2{
        color: #d8d8d8;
@@ -168,7 +183,9 @@ export default {
         text-align: left;
    }
    .clock img{
-        margin-top: 0.18rem;
+        margin-top: 0.15rem;
+        
+       
    }
    .noon{
        color: #f9fff8;

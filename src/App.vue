@@ -58,6 +58,7 @@ export default {
       height: 100%;
       background: #ffffff;
       font-size: 0.26rem;
+      overflow-x: hidden;
     }
    .fold-left-enter-active {
     animation-name: fold-left-in;

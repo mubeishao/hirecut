@@ -25,10 +25,13 @@
                       <div class="mall">
                           <p>{{item.mall}}</p><p class="distance">{{item.distance}}</p>
                       </div>
-                      <p class="district"><van-icon name="location-o" /> {{item.address}}</p>
+                      <p class="district"><van-icon name="location-o" /> 
+                          <span>{{item.address}}</span>
+                      </p>
                       <p class="district">
                         <van-icon name="phone-circle-o" />
-                        {{item.tel}}</p>
+                        <span>{{item.tel}}</span>
+                        </p>
                   </div>
                   <div class="book" @click.stop.prevent="toBook"></div>
            </div>
@@ -220,6 +223,9 @@ export default {
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.district span{
+  vertical-align: top;
 }
 .distance{
     font-size: 0.16rem;

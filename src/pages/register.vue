@@ -1,12 +1,14 @@
 <template>
       <div class="content">
-           <div class="head">注册</div>
+           <div class="head">
+               <p class="headres">注册</p>
+           </div>
            <div class="main">
                   <div class="image">
                        <van-image
                         round
-                        width="1.4rem"
-                        height="1.4rem"
+                        width="1.8rem"
+                        height="1.8rem"
                         src="https://img.yzcdn.cn/vant/cat.jpeg"
                     
                     />
@@ -18,7 +20,7 @@
                             center
                             clearable
                             label="验证码"
-                            placeholder="请输入短信验证码"
+                            placeholder="请输入验证码"
                             maxlength="6"
                             >
                             <template #button>
@@ -30,8 +32,16 @@
                   </div>  
 
                   <div class="regiter" @click="register"></div>
+                  <div class="forget">忘记密码?</div>
                   <div class="login"></div>
-                  <div class="wx"></div>
+                  <div >
+                      <van-image
+                        round
+                        width="0.52rem"
+                        height="0.5rem"
+                        src="../../static/images/res_11.png"
+                        />
+                  </div>
            </div>
       </div>    
 </template>
@@ -89,22 +99,23 @@ export default {
         width: 100%;
         height: 100%;
         background: #fefefe;
+        overflow: hidden;
     }
     .head{
-        width: 100%;
-        margin: 0 auto;
-        position: fixed;
-        left: 0;
-        top: 0;
+        width: 100%; 
         height: 0.6rem;
-        line-height: 0.6rem;
-        text-align: center;
+        text-align: right;
         color: #333333;
         font-weight: bold;
         font-size: 0.26rem;
-        padding: 0.1rem 0;
-       
+        padding: 0.3rem 0;
+        border-bottom: 0.01rem solid #d8d8d8;   
         
+    }
+    .headres{
+        position: fixed;
+        right: 0.2rem;
+        top: 0.5rem;
     }
    
     .main{
@@ -114,23 +125,22 @@ export default {
         align-items: center;
         width: 70%;
         margin: 0 auto;
-        padding-top: 1rem;
+        
     }
      .image{
         width: 100%;
-        margin: 0.6rem auto;
+        margin: 0.7rem auto 0.4rem 0;
         text-align: center;
     }
 
     .num{
         width: 100%;
-        margin: 0.3rem auto;
+        margin: 0.2rem auto;
         
     }
     .regiter{
         width: 100%;
-        height: 0.6rem;
-        line-height: 0.6rem;
+        height: 0.7rem;
         background: url('../../static/images/res_03.png') no-repeat;
         background-size: 100% 100%;
         color: #ffffff;
@@ -138,23 +148,39 @@ export default {
         font-weight: bold;
         margin: 0.1rem 0;
     }
+    .forget{
+        color: #9e9f9f;
+        font-size: 0.2rem;
+        margin-top: 0.1rem;
+    }
     .login{
         width: 100%;
-        margin: 1.5rem 0 1.6rem 0;
-        height: 0.24rem;
+        margin: 1rem 0 1.6rem 0;
+        height: 0.16rem;
         background: url('../../static/images/login-res_03.png') no-repeat;
         background-size: 100% 100%;
     }
     .wx{
-        width: 0.51rem;
-        height: 0.5rem;
+        width: 0.55rem;
+        height: 0.51rem;
         background: url('../../static/images/res_11.png') no-repeat;
         background-size: 100% 100%;
     }
 </style>
  <style>
      .van-button--primary{
-         background-color:#333333 !important;
-         border: #333333;
+         background-color:#ffffff !important;
+         border: #ffffff !important;
+         color: #1d1d1d  !important;
+         font-size: 0.24rem !important;
+     }
+     .van-cell:not(:last-child)::after{
+         border-bottom:none;
+     }
+     .van-cell {
+        border-bottom: 0.01rem solid #ebedf0 !important;
+     }
+     .van-field__label span{
+         font-size: 0.25rem !important;
      }
 </style>

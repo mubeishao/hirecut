@@ -2,8 +2,8 @@
     <div class="content">
             <HeaderTop :rightContent="rightContent"/>
              <ul>
-              <li class="card" v-for="(item,index) in cardList" :key="index">
-                   <div>
+              <li  v-for="(item,index) in cardList" :key="index">
+                   <div class="card">
                         <div class="memcard">
                             <p class="reward"><span>{{item.money1}}</span>¥</p> 
                        </div>
@@ -20,10 +20,10 @@
                         </p>
                         <div class="times">
                                 <p>会员专享,充{{item.money1}}送{{item.money1}}</p>
-                                <p class="extra">查看详情次</p>
+                                <p  @click="checkdet(index)" :class="currentIndex==index?'excolor extra':'excolor2 extra'">查看详情</p>
                         </div>
                    </div>
-                   <div class="outday">
+                   <div class="outday" v-show="showCheck+`${currentIndex+1}`">
                         <p>卡号: 000001</p>
                          <p>有效期: 永久有效</p>
                           <p>开卡日期: 2020年5月26日</p>
@@ -40,7 +40,12 @@ export default {
     data(){
         return{
             rightContent:"套餐余量",
-           cardList:[
+            currentIndex:0,
+            showCheck1:false,
+            showCheck2:false,
+            showCheck3:false,
+            showCheck4:false,
+            cardList:[
                {
                    money1:1000,
                    mall:'龙江店',
@@ -54,12 +59,36 @@ export default {
                    card:'染发卡',
                    month:10,
                    sheng:22
+               },
+                {
+                   money1:2000,
+                   mall:'龙江店',
+                   card:'染发卡',
+                   month:11,
+                   sheng:25
                }
-           ]
+            ],
+           
         }
+    },
+    created(){
+        
     },
     components:{
         HeaderTop,progressBar
+    },
+    methods:{
+        checkdet(index){
+            console.log(index)
+            let vm =this;
+            this.currentIndex = index
+            // this.showCheck = !this.showCheck
+            for(let i =1;i<vm.cardList.length;i++){
+            //    this[`showCheck${i+1}`] = true;
+              console.log(i)
+            //    console.log( this[`showCheck${i+1}`])
+            }
+        }
     }
 }
 </script>
@@ -71,7 +100,7 @@ export default {
          border-radius: 0.05rem;
          background: url("../../static/images/member1_07.png") no-repeat;
          background-size: 100% 100%;
-         margin-bottom: 1.2rem;
+         margin-bottom: 0.2rem;
         
      }
      .memcard{
@@ -107,16 +136,22 @@ export default {
          font-size: 0.2rem;
          
      }
+
       .extra{
-         font-size: 0.22rem;
-         color: #fb516b;
+         font-size: 0.22rem; 
+     }
+     .excolor2{
+        color: #666666;
+     }
+     .excolor{
+          color: #fb516b;
      }
      .deal{
          display: flex;
          justify-content: space-between;
          text-align: center;
          align-items: center;
-         
+        
      }
      .deal p{
          font-size: 0.24rem;
@@ -124,7 +159,7 @@ export default {
      }
      .outday{
          width: 98%;
-         margin: 0.5rem auto 1.6rem 0;
+         margin: 0.2rem auto 0.2rem 0.4rem;
          color: #666666;
          font-size: 0.22rem;     
      }

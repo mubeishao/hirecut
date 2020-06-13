@@ -23,7 +23,7 @@ const User = () => import('../pages/myself');
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path:'/', 
@@ -289,3 +289,21 @@ export default new Router({
    
   ]
 })
+
+// router.beforeEach((to, from, next) => {
+//   //我在这里模仿了一个获取用户信息的方法
+// let isLogin = window.sessionStorage.getItem('userInfo');
+//   if (isLogin) {
+//       //如果用户信息存在则往下执行。
+//       next()
+//   } else {
+//       //如果用户token不存在则跳转到login页面
+//       if (to.path === '/register') {
+//           next()
+//       } else {
+//           next('/register')
+//       }
+//   }
+// })
+
+export default router

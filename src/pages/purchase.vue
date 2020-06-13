@@ -28,8 +28,8 @@
                         <div class="assiant"><span class="project">助理:</span><span>{{item.assiant}}</span></div>
                         <div class="bottom">共计:<span class="yuan">{{item.total}}元</span></div>
                         <div class="right">
-                            <img src="../../static/images/goodrate_03.png" height="10" width="40"/>
-                            <span class="deatil">查看详情</span>
+                            <img src="../../static/images/goodrate_03.png" height="12" width="40"/>
+                            <span class="deatil" @click="checkDetail">查看详情</span>
                             <span class="deatil">我要点评</span>
                         </div>
                     </div>
@@ -81,6 +81,9 @@ export default {
     methods:{
          current(index){
              this.currentIndex = index
+         },
+         checkDetail(){
+             this.$router.push({path:'/integral'})
          }
     }
 }

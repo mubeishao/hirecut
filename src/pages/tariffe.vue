@@ -55,7 +55,7 @@
                 </div>        
             </li>
 
-             <li class="price" v-for="(item,index) in tableThree" :key="index">
+            <li class="price" v-for="(item,index) in tableThree" :key="index">
                     <div class="head">
                         <div class="order">
                                 <van-image round width="40" height="40" :src="item.img" />
@@ -249,18 +249,17 @@ export default {
         height: 0.8rem;
         background: url('../../static/images/order_03.png') no-repeat;
         background-size: 100% 100%;
-        line-height: 1rem;
+        line-height: 0.8rem;
         
     }
     .order{
         padding-left: 0.2rem;
+        padding-top: 0.065rem;
     }
     .head p{
-        height: 0.8rem;
-        line-height: 0.8rem;
          display: inline-block;
          vertical-align: top;
-         
+         margin-top: -0.03rem;
     }
     .round{
         padding-top: 0.1rem;

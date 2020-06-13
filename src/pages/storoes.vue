@@ -20,8 +20,9 @@
                                     <p class="heart">心动不如行动吧~</p>
                                 </div>
                             </div>  
-                            <div @click="goDetail">
+                            <div @click="goDetail" class="img_load">
                                 <img v-if="item.img" :src="item.img" alt="加载错误"   />
+                                <p class="bgm_right">2</p>
                                 <!-- <div v-if="item.img" class="imgRound" :style="{backgroundImage : `url(${item.img})` }"></div> -->
                                 <div class="item-body">
                                     <!-- <div class="item-desc">{{item.title}}</div> -->
@@ -57,7 +58,7 @@ export default {
                     avatar:'https://img.xiaohongshu.com/avatar/5b7d198a7e6e15000155f7c9.jpg@80w_80h_90q_1e_1c_1x.jpg',
                     title:'34555',
                     user:'tong',
-                    like:'终极大段lif'
+                    like:'终极大段理发期间'
                 },
                  {
                     img:'../../static/images/works_03.png',
@@ -304,6 +305,23 @@ export default {
 }
 .image{
     padding: 0.1rem 0.3rem;
+}
+.img_load{
+    position: relative;
+}
+.bgm_right{
+    position: absolute;
+    right: 0.1rem;
+    top: 0.1rem;
+    width: 0.32rem;
+    height: 0.26rem;
+    line-height: 0.29rem;
+    background: url('../../static/images/top_r.png') no-repeat;
+    background-size: 100% 100%;
+    font-size: 0.15rem;
+    color: #ffffff;
+    text-align: center;
+    
 }
  .name{
      max-width: 150px;

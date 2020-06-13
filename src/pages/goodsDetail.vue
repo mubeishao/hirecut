@@ -1,13 +1,17 @@
 <template>
     <div class="content">
+        
          <div class="detail">
+             <div class="tophead">
+                <img src="../../static/images/left_03.png" width="20" height="20"  @click="leftback"   />
+                <div class="cart">
+                      <span :class="showShu?'add':''">{{showShu ?goodsCount:''}}</span>
+                </div>
+             </div>
               <div class="image" :style="{backgroundImage: 'url(../../static/images/goods_de.png)'}">
                   <!-- <img src="../../static/images/goods_de.png"  class="imgOne" /> -->
-                  <div class="cart">
-                       <!-- <img src="../../static/images/goods1_05.png" width="30" height="30"  /> -->
-                      <span :class="showShu?'add':''">{{showShu ?goodsCount:''}}</span>
-                  </div>
-                  <img src="../../static/images/left_03.png" width="25" height="25"  @click="leftback"   />
+                  
+                 
                </div>
                <div class="goodsInfo">
                     <div class="hair">染发</div>
@@ -20,8 +24,10 @@
           <div class="goods">商品详情</div>
           <div class="tang">棕色烫染</div>
           <div class="bottom">
-              <img src="../../static/images/goods1_09.png" />
-               <img src="../../static/images/goods1_11.png" @click="addGoods" />
+               <div class="btone"></div>
+                <div class="bttwo"></div>
+               <!-- <img src="../../static/images/goods1_09.png" />
+               <img src="../../static/images/goods1_11.png" @click="addGoods" /> -->
           </div>
     </div>
 </template>
@@ -52,9 +58,42 @@ export default {
          width: 100%;
          height: 100%;
          background: #f7f7f7;
+         overflow-x: hidden;
+         .tophead{
+            width: 92%;
+            margin: 0 auto;
+            padding: 0.16rem 0;
+            img{
+                padding-top: 0.04rem;
+            }
+            
+         }
+        .cart{
+                position: fixed;
+                top: 0.14rem;
+                right: 0.2rem;
+                width: 0.5rem;
+                height: 0.5rem;
+                background: url('../../static/images/goods_c.png') no-repeat;
+                background-size: 100% 100%;
+                background-color: #616161;
+                border-radius: 0.4rem;
+                
+         }
+          .add{
+                display: block;
+                border-radius: 0.14rem;
+                background: #fb516b;
+                color:#ffffff;
+                padding: 0.06rem 0.1rem;
+                font-size: 0.1rem;
+                float: right;
+                margin-top: -0.1rem;
+                margin-right: -0.1rem;
+            }
          .detail{
                width: 100%;
-               height: 62%;
+               height: 70%;
                background: #ffffff;
          }
         .image{
@@ -68,26 +107,8 @@ export default {
                 height: 100%;
                 display: block;
             }
-            .cart{
-                position: fixed;
-                top: 0.3rem;
-                right: 0.4rem;
-                width: 0.5rem;
-                height: 0.5rem;
-                background: url('../../static/images//goods1_05.png') no-repeat;
-                background-size: 100% 100%;
-            }
-            .add{
-                display: block;
-                border-radius: 0.14rem;
-                background: #fb516b;
-                color:#ffffff;
-                padding: 0.06rem 0.1rem;
-                font-size: 0.1rem;
-                float: right;
-                margin-top: -0.12rem;
-                margin-right: -0.1rem;
-            }
+           
+           
             .imgleft{
                 position: absoute;
                 top: 0rem;
@@ -139,14 +160,22 @@ export default {
         }
         .bottom{
             width: 100%;
+            height: 0.7rem;
             display: flex;
             position: fixed;
             left: 0;
             bottom: 0;
-            img{
-              height: 0.6rem;  
-              flex: 1;
-            }
+          
+        }
+        .btone{
+            flex: 1;
+            background: url('../../static/images/goods1_09.png') no-repeat;
+            background-size: 100% 100%;
+        }
+        .bttwo{
+            flex: 1;
+            background: url('../../static/images/goods1_11.png') no-repeat;
+            background-size: 100% 100%;
         }
    }
 </style>

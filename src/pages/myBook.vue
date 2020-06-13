@@ -53,7 +53,7 @@ import HeaderTop from '../components/header'
                 rightContent:"我的预约",
                 address:"",
                 querylist:[],
-                queryInfo:this.$route.query.queryInfo,
+                queryInfo:{},
                 typeList:[
                     {
                         name:'塑性烫(菲灵)',
@@ -93,12 +93,11 @@ import HeaderTop from '../components/header'
      created(){
          let vm =this
          const query = localStorage.getItem('queryInfo')
-         console.log(query)
          if(query){
-                const queryString = JSON.parse(query)
-                const info = queryString.hairString
+                vm.queryInfo = JSON.parse(query)
+                const info =  vm.queryInfo.hairString
                 vm.querylist = info.split(',')
-                console.log(queryString)
+                console.log( vm.querylist)
          }
      },
      mounted(){

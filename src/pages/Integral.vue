@@ -1,8 +1,8 @@
 <template>
     <div class="Integral">
-            <HeaderTop/>
+            <HeaderTop :rightContent="selectProject" />
             <ul>
-                <li class="score" v-for="item in arrlist" :key="item">
+                <li class="score" v-for="(item,index) in arrlist" :key="index">
                     <div class="first">
                         <div class="get flex">
                             <p>{{item.getscore}}</p>
@@ -22,6 +22,7 @@ import HeaderTop from '../components/header'
 export default {
     data(){
         return{
+             selectProject:"消费详情",
               arrlist:[
                   {
                       getscore:'获取积分',

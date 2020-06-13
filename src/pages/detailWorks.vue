@@ -24,13 +24,14 @@
                            </ul>
                        </div>
                         <p class="gift">
-                               <span @click="zan" :class="show?'gift_job':''"><van-icon name="good-job-o" />
+                               <span @click="zan" :class="show?'gift_job':''">
+                                      <van-icon name="good-job-o" />
                                       <span class="count">{{countZan}}</span>
                                </span>
                                <router-link to="/reward">
                                     <span class="zan" >
                                         <van-icon name="gift-card-o" />
-                                            <span >打赏TA</span>
+                                        <span class="zanSpan">打赏TA</span>
                                     </span>
                                 </router-link>
                          </p>
@@ -158,7 +159,7 @@ export default {
         flex-wrap: wrap;
     }
     .itemImg li{
-        margin-right: 0.12rem;  
+        margin-right: 0.1rem;  
     }
     .gift{
         margin: 0.16rem auto;
@@ -178,14 +179,16 @@ export default {
         float: right;  
         color: #fb516b;
     }
-    .zan span{
-        font-size: 0.2rem;
+
+    .zanSpan{
+        font-size: 0.23rem;
         vertical-align: top;
+       
     }
     .count{
         font-size: 0.26rem;
         color: #999999;
-        
+        vertical-align: top;
     }
 
     .beauty span{
@@ -205,6 +208,9 @@ export default {
         border-radius: 0.4rem;
         padding-top: 0.14rem;
       
+    }
+    .beauty img{
+        margin-top: -0.04rem;
     }
     .reatil{
         position: fixed;

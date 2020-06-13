@@ -21,7 +21,7 @@
                         <div class="img"><van-icon name="arrow" /></div>
                      </div>
                       <div class="marquee">
-                          <van-notice-bar color="#ee0f0f" background="#ffffff" left-icon="info-o">
+                          <van-notice-bar color="#939393" background="#ffffff" left-icon="info-o">
                            公众号预约问题请联系商家!    <span class="detail">详情>></span>
                          </van-notice-bar>
                       </div>
@@ -450,7 +450,7 @@ export default {
     }
     .detail{
         font-size: 0.1rem;
-        margin-left: 1rem;
+        margin-left: 0.5rem;
     }
     .retailTime{
         position: relative;

@@ -4,14 +4,14 @@
          <div class="bgm">
             <div class="head">
                     <input placeholder="请输入产品名称" />
-                    <img src="../../static/images/cart_03.png" width="14" height="15"/>
+                     <span class="spIcon" @click.stop.prevent="searchkey"><van-icon name="search" /></span>
             </div>
             <ul class="sort">
                  <li v-for="(item,index) in list" :key="index" @click="sort(index)">
                    {{item.name}}
                  </li>
             </ul>
-            <div>
+            <div class="salerMain">
                 <ul class="saler">
                     <li v-for="(num,index) in content" :key="index"  @click="godetail">
                         <img :src="num.img" class="beauty" />
@@ -37,7 +37,7 @@ import HeaderTop from '../components/header'
 export default {
     data(){
         return{
-            selectProject:"购物车",
+            selectProject:"商城",
             list:[
                 {
                     name:'排序'
@@ -110,20 +110,27 @@ export default {
 }
 </script>
 <style scoped>
+
     .bgm{
         width: 100%;
-        height: 1.48rem;
-        background: #ffffff;
+        height: auto;
+        
     }
     .content{
         width: 100%;
-        height: 100%;
+        height: auto;
         background: #f5f5f5;
+        
     }
     .head{
         position: relative;
         padding-top: 0.2rem;
         text-align: center;
+    }
+    .spIcon{
+        position: absolute;
+        top: 0.34rem;
+        right: 0.28rem;
     }
     .head input{
         width: 90%;
@@ -143,6 +150,10 @@ export default {
         font-size: 0.22rem;
         color: #999999;
     }
+    .salerMain{
+        width: 100%;
+        background: #f5f5f5;
+    }
     .sort{
         width: 100%;
         display: flex;
@@ -152,6 +163,7 @@ export default {
         border-top: 0.01rem solid #ececec;
         margin-top: 0.16rem;
         border-bottom: 0.01rem solid #ececec; 
+      
     }
     .sort li{
         width: 94%;
@@ -171,12 +183,15 @@ export default {
     }
     .saler{ 
         width: 94%;
+        height: auto;
         margin: 0.16rem auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
         text-align: left;
         flex-wrap: wrap;
+        background: #f5f5f5;
+        margin-bottom: 0.5rem;
         
     }
     .saler li{
@@ -197,8 +212,8 @@ export default {
         padding-left: 0.16rem;
     }
     .type{
-        color: #333333;
-        font-weight: bold;
+        /* color: #333333;
+        font-weight: bold; */
         margin:0.1rem 0;
     }
     .score{

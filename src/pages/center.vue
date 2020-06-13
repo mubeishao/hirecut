@@ -1,6 +1,6 @@
 <template>
     <div class="center">
-          <HeaderTop :rightContent="rightContent"/>
+          <HeaderTop/>
           <!-- <noData :nodata="nodata"/> -->
           <div class="swiper">
                <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
@@ -71,8 +71,8 @@
                                 <div class="red">
                                     <img src="../../static/images/dian_19.png" width="26" height="24" />
                                     <div>
-                                         <p>型男专属</p>
-                                         <p class="serve">没有臭男人,只有懒男人</p>
+                                         <p>积分商城</p>
+                                         <p class="serve">激情换购,超值享受</p>
                                     </div>
                                 </div>
                                 <p class="award"><van-icon name="arrow" size="12" class="van" /></p>

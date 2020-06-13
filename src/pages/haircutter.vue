@@ -386,7 +386,7 @@ export default {
     .bot img{
         display: block;
         flex: 1;
-        height: 0.6rem;
+        height: 0.65rem;
     }
 
     
