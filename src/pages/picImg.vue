@@ -258,12 +258,12 @@ export default {
         text-align: center;
         border: 0.01rem solid #dddddd;
         border-radius: 0.4rem;
-        padding-top: 0.13rem;
-         color: #919191;
+        padding-top: 0.1rem;
+        color: #919191;
       
     }
     .beauty img{
-        margin-top: -0.04rem;
+        margin-top: -0.02rem;
     }
     .reatil{
         position: fixed;
@@ -286,12 +286,16 @@ export default {
         margin-right: 0.1rem;
     }
     .shang{
-        font-size: 0.22rem;
+        font-size: 0.25rem;
+      
     }
     /* .objPic{
         display: flex;
         justify-content: flex-start;
     } */
   
+
+</style>
+<style>
 
 </style>

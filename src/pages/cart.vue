@@ -129,8 +129,8 @@ export default {
     }
     .spIcon{
         position: absolute;
-        top: 0.34rem;
-        right: 0.28rem;
+        top: 0.33rem;
+        right: 0.44rem;
     }
     .head input{
         width: 90%;
@@ -227,10 +227,12 @@ export default {
         color: #999999;
         margin-bottom: 0.2rem;
         font-size: 0.2rem;
-    }
-    .customer img{
         padding-right: 0.2rem;
     }
+    .customer p{
+        padding-top: 0.03rem;
+    }
+
     
    
 </style>

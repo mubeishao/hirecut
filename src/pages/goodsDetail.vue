@@ -4,7 +4,7 @@
          <div class="detail">
              <div class="tophead">
                 <img src="../../static/images/left_03.png" width="20" height="20"  @click="leftback"   />
-                <div class="cart">
+                <div class="cart" @click="shopping">
                       <span :class="showShu?'add':''">{{showShu ?goodsCount:''}}</span>
                 </div>
              </div>
@@ -25,9 +25,9 @@
           <div class="tang">棕色烫染</div>
           <div class="bottom">
                <div class="btone"></div>
-                <div class="bttwo"></div>
+                <div class="bttwo" @click="addGoods"></div>
                <!-- <img src="../../static/images/goods1_09.png" />
-               <img src="../../static/images/goods1_11.png" @click="addGoods" /> -->
+               <img src="../../static/images/goods1_11.png"  /> -->
           </div>
     </div>
 </template>
@@ -46,6 +46,9 @@ export default {
       addGoods(){
           this.showShu = true
           this.goodsCount++
+      },
+      shopping(){
+          this.$router.push({path:'/shoppingcart'})
       }
     }
    
@@ -70,7 +73,7 @@ export default {
          }
         .cart{
                 position: fixed;
-                top: 0.14rem;
+                top: 0.1rem;
                 right: 0.2rem;
                 width: 0.5rem;
                 height: 0.5rem;

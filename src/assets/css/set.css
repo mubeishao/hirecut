@@ -35,3 +35,7 @@
 .van-field__button{
     padding-bottom: 0.1rem;
 }
+
+.van-dialog__confirm, .van-dialog__confirm:active{
+    color: #ff2145 !important;
+}

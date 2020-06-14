@@ -84,7 +84,7 @@ export default {
        display: flex;
        justify-content: space-between;
        margin: 0 auto;
-       height: 30px;
+       height: 60px;
        padding-top: 0.3rem;
        
       

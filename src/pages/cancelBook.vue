@@ -99,7 +99,7 @@ export default {
    }
    .flex{
        width: 80%;
-       margin: 0 auto;
+       margin: 0.2rem auto;
        display: flex;
        justify-content: flex-start;
    }
@@ -141,7 +141,7 @@ export default {
    .been{
        width: 2rem;
        height: 0.7rem;
-       line-height: 0.76rem;
+       line-height: 0.72rem;
        border-radius: 0.7rem;
        color: #d8d8d8;
        border: 0.01rem solid #d0d0d0;
@@ -165,7 +165,7 @@ export default {
    .clock{
        position: fixed;
        left: 30%;
-       top: 14%;
+       top: 13%;
        width: 38%;
        display: flex;
        justify-content: center;
@@ -173,7 +173,7 @@ export default {
        background: #ff2145;
        border-radius: 0.7rem;
        text-align: center;
-       margin: 0 auto;
+       margin: 0.28rem auto auto 0;
        
 
    }
@@ -199,4 +199,7 @@ export default {
        padding-top: 0.08rem;
       
    }
+</style>
+<style>
+
 </style>

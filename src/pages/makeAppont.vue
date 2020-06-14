@@ -104,13 +104,14 @@ import HeaderTop from '../components/header'
     }
     .nanjing{
        height: 0.6rem;
-       line-height: 0.6rem; 
+       line-height: 0.36rem; 
        width: 100%;
-       padding: 0.14rem 0;
+       padding: 0.12rem 0;
        margin: 0 auto;
        font-weight: bold;
        background: #ffffff;
        padding-left: 0.3rem;
+       
     }
     .bottom{
         position: fixed;

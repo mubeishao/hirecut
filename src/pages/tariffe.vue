@@ -5,7 +5,7 @@
             <li class="price" v-for="(item,index) in tablelist" :key="index">
                     <div class="head">
                         <div class="order">
-                                <van-image round width="40" height="40" :src="item.img" />
+                                <van-image round width="0.7rem" height="0.7rem" :src="item.img" />
                                 <p>{{item.form}}</p>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
             <li class="price" v-for="(item,index) in tableTwo" :key="index">
                     <div class="head">
                         <div class="order">
-                                <van-image round width="40" height="40" :src="item.img" />
+                                <van-image round width="0.7rem" height="0.7rem" :src="item.img" />
                                 <p>{{item.form}}</p>
                         </div>
                     </div>      
@@ -58,7 +58,7 @@
             <li class="price" v-for="(item,index) in tableThree" :key="index">
                     <div class="head">
                         <div class="order">
-                                <van-image round width="40" height="40" :src="item.img" />
+                                <van-image round width="0.7rem" height="0.7rem" :src="item.img" />
                                 <p>{{item.form}}</p>
                         </div>
                     </div>      
@@ -253,24 +253,24 @@ export default {
         
     }
     .order{
-        padding-left: 0.2rem;
-        padding-top: 0.065rem;
+        height: 0.6rem;
+        padding-left: 0.1rem;
+        padding-top: 0.05rem;
+        
     }
-    .head p{
+    .order p{
          display: inline-block;
          vertical-align: top;
-         margin-top: -0.03rem;
+       
     }
-    .round{
-        padding-top: 0.1rem;
-    }
+
     
     .price{
         width: 94%;
         height: auto;
         margin: 0.2rem auto;
         background: #ffffff;
-         padding-bottom: 0.1rem; 
+        padding-bottom: 0.1rem; 
         
     }
   
@@ -348,4 +348,9 @@ export default {
     }
    
 
+</style>
+<style>
+    .van-image--round{
+        margin-bottom: -0.06rem !important;
+    }
 </style>

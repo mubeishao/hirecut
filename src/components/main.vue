@@ -196,12 +196,12 @@ export default {
   flex: 1;
   text-align: center;
   height: 0.46rem;
-  line-height: 0.48rem;
+  line-height: 0.46rem;
   border-radius: 0.24rem; 
   border: 0.014rem solid #dfdfdf;
   margin: 0 0.1rem;
   font-size: 0.22rem;
-  padding-top: 0.01rem;
+  
 }
 
 .pic{
@@ -226,6 +226,7 @@ export default {
 }
 .district span{
   vertical-align: top;
+
 }
 .distance{
     font-size: 0.16rem;

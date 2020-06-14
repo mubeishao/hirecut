@@ -203,16 +203,17 @@ export default {
     }
     
     .circle li{
-        width: 1.1rem;
-        height: 1.1rem;
-        line-height: 1.1rem;
+        width: 1.12rem;
+        height: 1.12rem;
+        line-height: 1.12rem;
         border-radius: 50%;
-        border: 0.1rem solid #5a5a5a;
+        border: 0.06rem solid #5a5a5a;
         text-align: center;
         color: #fb516b;
         font-size: 0.38rem;
         font-weight: bold;
         transition: all .3s ease;
+        margin-left: -0.01rem;
     }
      .circle2{
         width: 2.5rem;
@@ -227,7 +228,7 @@ export default {
         height: 0.8rem;
         line-height: 0.8rem;
         border-radius: 0.6rem;
-        border: 0.1rem solid #5a5a5a;
+        border: 0.06rem solid #5a5a5a;
         text-align: center;
         transition: all 0.3s ease-in-out;
        
@@ -243,7 +244,7 @@ export default {
         font-size: 0.3rem;
         font-weight: bold;
         margin: 0 auto;
-        margin-top: 0.16rem;
+        margin-top: 0.08rem;
 
     }
     .click{

@@ -23,7 +23,7 @@
                                 <p  @click="checkdet(index)" :class="currentIndex==index?'excolor extra':'excolor2 extra'">查看详情</p>
                         </div>
                    </div>
-                   <div class="outday" v-show="showCheck+`${currentIndex+1}`">
+                   <div class="outday" v-show="showCheck">
                         <p>卡号: 000001</p>
                          <p>有效期: 永久有效</p>
                           <p>开卡日期: 2020年5月26日</p>
@@ -41,6 +41,7 @@ export default {
         return{
             rightContent:"套餐余量",
             currentIndex:0,
+            showCheck:false,
             showCheck1:false,
             showCheck2:false,
             showCheck3:false,
@@ -82,7 +83,7 @@ export default {
             console.log(index)
             let vm =this;
             this.currentIndex = index
-            // this.showCheck = !this.showCheck
+            this.showCheck = !this.showCheck
             for(let i =1;i<vm.cardList.length;i++){
             //    this[`showCheck${i+1}`] = true;
               console.log(i)

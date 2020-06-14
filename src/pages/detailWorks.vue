@@ -141,7 +141,7 @@ export default {
         float: right;
     }
     .boy{
-        width: 80%;
+        width: 90%;
         margin: 0.14rem auto;
         padding-left: 0.6rem; 
 
@@ -151,15 +151,17 @@ export default {
         font-size: 0.22rem;
         margin-bottom: 0.2rem;
         padding-top: 0.1rem;
+        padding-left: 0.1rem;
     }
     .itemImg{
         display: flex;
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
+        width: 100%;
     }
     .itemImg li{
-        margin-right: 0.1rem;  
+        margin-left: 0.1rem;  
     }
     .gift{
         margin: 0.16rem auto;
@@ -176,14 +178,18 @@ export default {
         
     }
     .zan{
+        width: 1rem;
+        position: relative;
         float: right;  
         color: #fb516b;
     }
 
     .zanSpan{
         font-size: 0.23rem;
-        vertical-align: top;
-       
+        vertical-align: middle;
+        position: absolute;
+        right: -0.04rem;
+        bottom: 0.04rem;
     }
     .count{
         font-size: 0.26rem;
@@ -217,12 +223,12 @@ export default {
         left: 0;
         bottom: 0;
         width: 100%;
-        height: 0.6rem;
-        line-height: 0.6rem;
+        height: 0.7rem;
+        line-height: 0.7rem;
         text-align: center;
         background: url('../../static/images/zyj_02.png') no-repeat;
         background-size: 100% 100%;
-        font-size: 0.24rem;
+        font-size: 0.26rem;
         color: #ffffff;
     }
 

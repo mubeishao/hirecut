@@ -188,9 +188,9 @@ import HeaderTop from '../components/header'
                            padding: 0.05rem;
                            border-radius: 0.06rem;
                            p{
-                               width: 1.6rem;
-                               height: 0.4rem;
-                               line-height: 0.4rem;
+                               width: 1.5rem;
+                               height: 0.5rem;
+                               line-height: 0.32rem;
                                text-align: center;
                                border-radius: 0.5rem;
                                padding: 0.1rem;

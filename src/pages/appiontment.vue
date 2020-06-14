@@ -19,7 +19,8 @@
                         </p>
                         <p class="fontS">
                               <img src="../../static/images/picture_07.png" width="8" height="10" />
-                            0551-4685554</p>
+                              <span>0551-4685554</span>    
+                        </p>
                     </div>
                     <div class="telphone">
                         <!-- <van-image width="38" height="38" round   src="https://img.yzcdn.cn/vant/cat.jpeg" /> -->
@@ -246,13 +247,12 @@ export default {
     .fontS{
         font-size: 0.2rem;
         color: #9b9b9b;
-        margin: 0.12rem 0;
-        
-        
+        margin: 0.12rem 0;  
     }
     .fontS img{
-        vertical-align: middle;
+        margin-top: -0.06rem;
     }
+
 
     .nanjing{
         color: #9b9b9b;

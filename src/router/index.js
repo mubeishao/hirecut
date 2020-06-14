@@ -286,6 +286,14 @@ const router = new Router({
         showfoot:false   
      }
     },
+    {
+      path: '/shoppingcart',
+      name: 'shoppingcart',
+      component: () => import('../pages/shoppingCart'), 
+      meta:{
+        showfoot:false   
+     }
+    },
    
   ]
 })
